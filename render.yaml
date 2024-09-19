@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: yuki-math-blog
+    env: python
+    region: Oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn --port $PORT --host 0.0.0.0 main:app"
+    envVars:
+    - key: PYTHON_VERSION
+      value: 3.10.9

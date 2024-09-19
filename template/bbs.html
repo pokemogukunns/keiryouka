@@ -1,0 +1,1604 @@
+<html><head>
+  <title>連番を簡単に生成！！</title>
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mochidukiyukimi/YukBBS-Verify@main/wasm_exec.js"></script>
+  <script>async function loadWasm() {
+            const go = new Go();
+            const wasm = await WebAssembly.instantiateStreaming(fetch("https://cdn.jsdelivr.net/gh/mochidukiyukimi/YukBBS-Verify@main/yukiverify.wasm"), go.importObject);
+            go.run(wasm.instance);
+        }
+    loadWasm();
+    setInterval(() => {
+  const hash = getHashedUrl();
+  document.cookie = "k=" + hash + "; path=/";
+}, 1000);</script>
+<script>
+  function addDarkmodeWidget() {
+    new Darkmode().showWidget();
+  }
+  window.addEventListener('load', addDarkmodeWidget);
+  const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+    .then(FingerprintJS => FingerprintJS.load())
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      document.cookie = 'i='+result.visitorId+"; path=/;";
+    })
+  function getRandomString(length) {
+    let randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+}
+ 
+function setCookie(name, value, days) {
+    let expires = '';
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; path=/';
+}
+ 
+function getCookie(name) {
+    let nameEQ = name + '=';
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nameEQ) === 0) {
+            return cookie.substring(nameEQ.length, cookie.length);
+        }
+    }
+    return null;
+}
+ 
+function assignRandomCookie() {
+    let cookieName = 'p';
+    let existingValue = getCookie(cookieName);
+    
+    if (!existingValue) {
+        let randomValue = getRandomString(10);
+        setCookie(cookieName, randomValue, 30); // 30 days expiration
+        console.log('Assigned new cookie value:', randomValue);
+    } else {
+        console.log('Existing cookie value found:', existingValue);
+    }
+}
+ 
+// Call the function when the page loads
+assignRandomCookie();
+</script>
+ 
+<style>
+.example4{
+    background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783,#e60000) 0 / 200%;
+    animation: 5s example4 linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes example4{
+    100% { background-position: 200%; }
+}
+</style>
+<link rel="stylesheet" type="text/css" href="data:text/css;charset=UTF-8,%0A%20%20%20%20%20%20.darkmode-layer%20%7B%0A%20%20%20%20%20%20%20%20position%3A%20fixed%3B%0A%20%20%20%20%20%20%20%20pointer-events%3A%20none%3B%0A%20%20%20%20%20%20%20%20background%3A%20%23fff%3B%0A%20%20%20%20%20%20%20%20transition%3A%20all%200.3s%20ease%3B%0A%20%20%20%20%20%20%20%20mix-blend-mode%3A%20difference%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-layer--button%20%7B%0A%20%20%20%20%20%20%20%20width%3A%202.9rem%3B%0A%20%20%20%20%20%20%20%20height%3A%202.9rem%3B%0A%20%20%20%20%20%20%20%20border-radius%3A%2050%25%3B%0A%20%20%20%20%20%20%20%20right%3A%2032px%3B%0A%20%20%20%20%20%20%20%20bottom%3A%2032px%3B%0A%20%20%20%20%20%20%20%20left%3A%20unset%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-layer--simple%20%7B%0A%20%20%20%20%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20%20%20%20%20height%3A%20100%25%3B%0A%20%20%20%20%20%20%20%20top%3A%200%3B%0A%20%20%20%20%20%20%20%20left%3A%200%3B%0A%20%20%20%20%20%20%20%20transform%3A%20scale(1)%20!important%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-layer--expanded%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20scale(100)%3B%0A%20%20%20%20%20%20%20%20border-radius%3A%200%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-layer--no-transition%20%7B%0A%20%20%20%20%20%20%20%20transition%3A%20none%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-toggle%20%7B%0A%20%20%20%20%20%20%20%20background%3A%20%23100f2c%3B%0A%20%20%20%20%20%20%20%20width%3A%203rem%3B%0A%20%20%20%20%20%20%20%20height%3A%203rem%3B%0A%20%20%20%20%20%20%20%20position%3A%20fixed%3B%0A%20%20%20%20%20%20%20%20border-radius%3A%2050%25%3B%0A%20%20%20%20%20%20%20%20border%3Anone%3B%0A%20%20%20%20%20%20%20%20right%3A%2032px%3B%0A%20%20%20%20%20%20%20%20bottom%3A%2032px%3B%0A%20%20%20%20%20%20%20%20left%3A%20unset%3B%0A%20%20%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%20%20%20%20transition%3A%20all%200.5s%20ease%3B%0A%20%20%20%20%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20%20%20%20%20justify-content%3A%20center%3B%0A%20%20%20%20%20%20%20%20align-items%3A%20center%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-toggle--white%20%7B%0A%20%20%20%20%20%20%20%20background%3A%20%23fff%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-toggle--inactive%20%7B%0A%20%20%20%20%20%20%20%20display%3A%20none%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20.darkmode-background%20%7B%0A%20%20%20%20%20%20%20%20background%3A%20%23fff%3B%0A%20%20%20%20%20%20%20%20position%3A%20fixed%3B%0A%20%20%20%20%20%20%20%20pointer-events%3A%20none%3B%0A%20%20%20%20%20%20%20%20z-index%3A%20-10%3B%0A%20%20%20%20%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20%20%20%20%20height%3A%20100%25%3B%0A%20%20%20%20%20%20%20%20top%3A%200%3B%0A%20%20%20%20%20%20%20%20left%3A%200%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20img%2C%20.darkmode-ignore%20%7B%0A%20%20%20%20%20%20%20%20isolation%3A%20isolate%3B%0A%20%20%20%20%20%20%20%20display%3A%20inline-block%3B%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%40media%20screen%20and%20(-ms-high-contrast%3A%20active)%2C%20(-ms-high-contrast%3A%20none)%20%7B%0A%20%20%20%20%20%20%20%20.darkmode-toggle%20%7Bdisplay%3A%20none%20!important%7D%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%40supports%20(-ms-ime-align%3Aauto)%2C%20(-ms-accelerator%3Atrue)%20%7B%0A%20%20%20%20%20%20%20%20.darkmode-toggle%20%7Bdisplay%3A%20none%20!important%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20"></head>
+<body><div class="darkmode-background"></div><div class="darkmode-layer darkmode-layer--button"></div><button class="darkmode-toggle" aria-label="Activate dark mode" aria-checked="false" role="checkbox"></button>
+<a href="/">Yuki Youtube</a>
+<div class="example4"><h1>掲示板</h1></div><div id="title_div"><input id="title_input" value="連番を簡単に生成！！"><button onclick="document.getElementsByTagName('title')[0].textContent = document.getElementById('title_input').value">titleを変更</button></div><div id="message_log_div"><input id="message_log" style="display: none;"><button onclick="copy_message_log()">Copy message log</button>（キーボードショートカットで保存し（同時に1つのみ可能）、左のボタンからコピーできる）</div>
+新規さんへ、先ずは挨拶をしましょう。シード値は自分のidを決めるものでパスワードのようなものです。<br>今の話題に勇気を出して参加してみましょう！！！<br>
+メッセージが送れない場合メッセージや名前が規制されている可能性があります。<br>現在の推定オンライン数は6です。<br>
+<a href="/bbs/how">使い方</a><div id="shortcut_help_button_div"><button onclick="document.getElementById('shortcut_help').classList.toggle('hiddenElm')">キーボードショートカットヘルプを表示/非表示</button></div><br>
+<form action="/bbs/result" method="get" onsubmit="return checkForm()">
+    <select name="channel" id="channel" onchange="reloadmessages();setTimeout(function(){update_comments_num();},300);">
+      <option value="main" selected="">雑談</option>
+      <option value="battle">バトルスタジアム</option>
+    </select>
+    <br>
+    <label for="article">メッセージ</label>
+    <textarea name="message" rows="6" cols="100" maxlength="50" required=""></textarea>
+    <p></p>
+    <label for="name">名前</label>
+    <input type="text" name="name" value="" maxlength="40" required="">
+    <label for="seed">シード</label>
+    <input type="text" name="seed" value="" required="">
+    <button type="submit">送信する</button>
+    <br>
+スピーカー以上のメッセージのみ表示<input type="checkbox" id="filter" name="verify">
+<div id="comments_num_info">現在のコメント数は8858です。</div><h2>投稿</h2>
+</form>
+ 
+<div id="messages"><h3>今の話題：<font color="red">雑談での青シードの発言制限中</font><br>【運営より】<a href="https://forms.gle/9ERWGG6smfD2crEh8">ttps://forms.gle/9ERWGG6smfD2crEh8</a> 回答お願いします!【必読】<a href="https://x.gd/Vw60d">ttps://x.gd/Vw60d</a><br>【Wiki】<a href="https://sites.google.com/view/yukibbs-wiki/">ttps://sites.google.com/view/yukibbs-wiki/</a> 【管理部より】<a href="https://writening.net/page?sSjdY6">ttps://writening.net/page?sSjdY6</a><br>【お知らせ】ｶｲﾎｳ､ﾙﾘﾘ､時雨が活休･ｲｶ､夕暮が引退｜ﾗﾋﾟｭﾀ､たまごがモデ合格!｜再起動有｡諸々の確認を<br>電車の格言:格言無ァァァァァァァァァァァイッッッ！！！！！！！</h3>
+<table border="1">
+    <tbody><tr>
+    <th>No</th>
+    <th>名前</th>
+    <th>投稿</th>
+    </tr>
+    
+        <tr>
+            <td>8858</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>「僕はゆい٩( ᐛ )وなんだよ！？覚えてね( ✌︎'ω')✌︎」って入れて欲しいなー</td>
+        </tr>
+    
+        <tr>
+            <td>8857</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>(๑╹ω╹๑ )あざっす！</td>
+        </tr>
+    
+        <tr>
+            <td>8856</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>55( ﾟ∀ﾟ)ええよー</td>
+        </tr>
+    
+        <tr>
+            <td>8855</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>変人さんのことモバさんって呼んでもいいすか((((((((((殴</td>
+        </tr>
+    
+        <tr>
+            <td>8854</td>
+            <td>じににj<font color="darkorange">@oedV8kn</font></td>
+            <td>満俺電池さんいるかな？</td>
+        </tr>
+    
+        <tr>
+            <td>8853</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>いえす</td>
+        </tr>
+    
+        <tr>
+            <td>8852</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>もでは紫色？</td>
+        </tr>
+    
+        <tr>
+            <td>8851</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>へー</td>
+        </tr>
+    
+        <tr>
+            <td>8850</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>何か入れたい文字とかある？</td>
+        </tr>
+    
+        <tr>
+            <td>8849</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>モデ以上に頼んだら変えてもらえれるお</td>
+        </tr>
+    
+        <tr>
+            <td>8848</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>あとさーIDの後に名前やるのってどうするんだ？</td>
+        </tr>
+    
+        <tr>
+            <td>8847</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>いえーす</td>
+        </tr>
+    
+        <tr>
+            <td>8846</td>
+            <td>Yu-i        プロキシ作れるよ<font color="darkorange">@GIF6fvs</font></td>
+            <td>スピーカーとかのことかー</td>
+        </tr>
+    
+        <tr>
+            <td>8845</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>843 利用規約に書いてあるけど、権限が違うと色が違うお</td>
+        </tr>
+    
+        <tr>
+            <td>8844</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>こんー</td>
+        </tr>
+    
+        <tr>
+            <td>8843</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>IDの色って違うのなんでですか？</td>
+        </tr>
+    
+        <tr>
+            <td>8842</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>こん〜 </td>
+        </tr>
+    
+        <tr>
+            <td>8841</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おちおけ</td>
+        </tr>
+    
+        <tr>
+            <td>8840</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td><a href="https://burosuta-juki.root.sx/">https://burosuta-juki.root.sx/</a>　ランマー？</td>
+        </tr>
+    
+        <tr>
+            <td>8839</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>35(｀・ω・´)ゝﾋﾞｼｯ</td>
+        </tr>
+    
+        <tr>
+            <td>8838</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>IDの色のことかね</td>
+        </tr>
+    
+        <tr>
+            <td>8837</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>シードの色ってなんですか？</td>
+        </tr>
+    
+        <tr>
+            <td>8836</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>おちおけえい</td>
+        </tr>
+    
+        <tr>
+            <td>8835</td>
+            <td><font color="#00ffff">呪術高専2年五条悟</font><font color="darkorange">@sM7sdbS</font></td>
+            <td>おち</td>
+        </tr>
+    
+        <tr>
+            <td>8834</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>17「雷を操る白き棺＝モバイルバッテリー」に感動したので()</td>
+        </tr>
+    
+        <tr>
+            <td>8833</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>よろよろー</td>
+        </tr>
+    
+        <tr>
+            <td>8832</td>
+            <td>じににj<font color="darkorange">@oedV8kn</font></td>
+            <td>今、新規でバトスタから来たゾ<br>利用規約は読んだゾ</td>
+        </tr>
+    
+        <tr>
+            <td>8831</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>27( ﾟ∀ﾟ)俺inbox10個作ったわ</td>
+        </tr>
+    
+        <tr>
+            <td>8830</td>
+            <td><font color="#5383c3">☆NINZINN☆</font><font color="darkorange">@4PEGZXM</font><font color="magenta">ニンジンオイシイヨネ</font></td>
+            <td>25ぶろだった...</td>
+        </tr>
+    
+        <tr>
+            <td>8829</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>828 初めまして〜</td>
+        </tr>
+    
+        <tr>
+            <td>8828</td>
+            <td>じににj<font color="darkorange">@oedV8kn</font></td>
+            <td>こんにちは</td>
+        </tr>
+    
+        <tr>
+            <td>8827</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>だよね！？</td>
+        </tr>
+    
+        <tr>
+            <td>8826</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>(*^ω^)やはりipv64こそが至高…</td>
+        </tr>
+    
+        <tr>
+            <td>8825</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td><a href="https://oreha.henntai.ipv64.net/">https://oreha.henntai.ipv64.net/</a>　これもいいんじゃない？</td>
+        </tr>
+    
+        <tr>
+            <td>8824</td>
+            <td><font color="#5383c3">☆NINZINN☆</font><font color="darkorange">@4PEGZXM</font><font color="magenta">ニンジンオイシイヨネ</font></td>
+            <td>822てんきゅゆー</td>
+        </tr>
+    
+        <tr>
+            <td>8823</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>/speaker oedV8kn</td>
+        </tr>
+    
+        <tr>
+            <td>8822</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td><a href="https://sukisuki.yuiyui.ipv64.net/">https://sukisuki.yuiyui.ipv64.net/</a>　自作シャドウw</td>
+        </tr>
+    
+        <tr>
+            <td>8821</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>19( ﾟДﾟ)なんだモバ充って()</td>
+        </tr>
+    
+        <tr>
+            <td>8820</td>
+            <td><font color="#5383c3">☆NINZINN☆</font><font color="darkorange">@4PEGZXM</font><font color="magenta">ニンジンオイシイヨネ</font></td>
+            <td>プロキシほしー</td>
+        </tr>
+    
+        <tr>
+            <td>8819</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>モバ充だったんか()</td>
+        </tr>
+    
+        <tr>
+            <td>8818</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>ただのシスコンバッテリーやあ！？</td>
+        </tr>
+    
+        <tr>
+            <td>8817</td>
+            <td>ただのモバイルバッテリー<font color="darkorange">@FouGWVD</font></td>
+            <td>16( ﾟ∀ﾟ)俺はモバイルバッテリーだったのか()</td>
+        </tr>
+    
+        <tr>
+            <td>8816</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>モバさんの助言をいただいたので一人称「ボク」で通していきたいとおもいますすりーぶいえふですよろしく</td>
+        </tr>
+    
+        <tr>
+            <td>8815</td>
+            <td> <font color="darkorange">@ViL5jSA</font></td>
+            <td>あ</td>
+        </tr>
+    
+        <tr>
+            <td>8814</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おちおけい</td>
+        </tr>
+    
+        <tr>
+            <td>8813</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>09( ﾟ∀ﾟ)おいどんはそれでいいと思うでごわす()</td>
+        </tr>
+    
+        <tr>
+            <td>8812</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>おちおけ</td>
+        </tr>
+    
+        <tr>
+            <td>8811</td>
+            <td>反省<font color="darkorange">@mvaioyk</font></td>
+            <td>03と同じくあまり浮上できないんで落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8810</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>ありがとぉぉ</td>
+        </tr>
+    
+        <tr>
+            <td>8809</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>04じゃあ一人称「ボク」でいいですか()</td>
+        </tr>
+    
+        <tr>
+            <td>8808</td>
+            <td>反省<font color="darkorange">@mvaioyk</font></td>
+            <td>たまごやきモデおめー</td>
+        </tr>
+    
+        <tr>
+            <td>8807</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>03(｀・ω・´)ゝﾋﾞｼｯ</td>
+        </tr>
+    
+        <tr>
+            <td>8806</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>おちおけ</td>
+        </tr>
+    
+        <tr>
+            <td>8805</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おけい</td>
+        </tr>
+    
+        <tr>
+            <td>8804</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>01( ﾟ∀ﾟ)その謎の(一人称(いるか？()</td>
+        </tr>
+    
+        <tr>
+            <td>8803</td>
+            <td>あ(ry<font color="darkorange">@FO3AY2S</font><font color="magenta">粗品推し/末期の男</font></td>
+            <td>学校じゃあんま浮上できんから落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8802</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>ありがとぉー</td>
+        </tr>
+    
+        <tr>
+            <td>8801</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>大丈夫ですよ、ボク(一人称(なんて代数63でした</td>
+        </tr>
+    
+        <tr>
+            <td>8800</td>
+            <td>あ(ry<font color="darkorange">@FO3AY2S</font><font color="magenta">粗品推し/末期の男</font></td>
+            <td>昼休み言えなかったけど、たまごやきモデ合格おめでとう！</td>
+        </tr>
+    
+        <tr>
+            <td>8799</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>93同じく技術得意</td>
+        </tr>
+    
+        <tr>
+            <td>8798</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>97( ﾟ∀ﾟ)頑張るんじゃ</td>
+        </tr>
+    
+        <tr>
+            <td>8797</td>
+            <td>あ(ry<font color="darkorange">@FO3AY2S</font><font color="magenta">粗品推し/末期の男</font></td>
+            <td>理科めんどい(´・ω・｀)</td>
+        </tr>
+    
+        <tr>
+            <td>8796</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>(´・ω・)だけど数学70でガチで泣きそう()</td>
+        </tr>
+    
+        <tr>
+            <td>8795</td>
+            <td><font color="red">ぱなか</font></td>
+            <td>( ＾ω＾三＾ω＾)</td>
+        </tr>
+    
+        <tr>
+            <td>8794</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おぉー</td>
+        </tr>
+    
+        <tr>
+            <td>8793</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>(*^ω^)技術50点満点で47点！やったぜ</td>
+        </tr>
+    
+        <tr>
+            <td>8792</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>なんか勝手にiPad触れてて草</td>
+        </tr>
+    
+        <tr>
+            <td>8791</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>ん？</td>
+        </tr>
+    
+        <tr>
+            <td>8790</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おけい</td>
+        </tr>
+    
+        <tr>
+            <td>8789</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>87(｀・ω・´)ゝﾋﾞｼｯ</td>
+        </tr>
+    
+        <tr>
+            <td>8788</td>
+            <td><font color="#ff7f50">生ハム</font><font color="darkorange">@HZPAWCB</font><font color="magenta">土踏まず/白上フブキ推し</font></td>
+            <td>おk</td>
+        </tr>
+    
+        <tr>
+            <td>8787</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8786</td>
+            <td><font color="#ff7f50">生ハム</font><font color="darkorange">@HZPAWCB</font><font color="magenta">土踏まず/白上フブキ推し</font></td>
+            <td>その間？</td>
+        </tr>
+    
+        <tr>
+            <td>8785</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>82(´・ω・)擁護しているのか、蔑んでいるのかわからん</td>
+        </tr>
+    
+        <tr>
+            <td>8784</td>
+            <td><font color="red">ぱなか</font></td>
+            <td>ぬ</td>
+        </tr>
+    
+        <tr>
+            <td>8783</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>ごめーん間違えたシスコンだったw</td>
+        </tr>
+    
+        <tr>
+            <td>8782</td>
+            <td><font color="#ff7f50">生ハム</font><font color="darkorange">@HZPAWCB</font><font color="magenta">土踏まず/白上フブキ推し</font></td>
+            <td>変さんは変態じゃないよシスコンなだけだよ!!</td>
+        </tr>
+    
+        <tr>
+            <td>8781</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>チャットワークの人たち？</td>
+        </tr>
+    
+        <tr>
+            <td>8780</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>生ハムもー</td>
+        </tr>
+    
+        <tr>
+            <td>8779</td>
+            <td><font color="#ff7f50">生ハム</font><font color="darkorange">@HZPAWCB</font><font color="magenta">土踏まず/白上フブキ推し</font></td>
+            <td>シスコンじゃないの？</td>
+        </tr>
+    
+        <tr>
+            <td>8778</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>77(*^ω^)ほう…我を変態扱いするか…</td>
+        </tr>
+    
+        <tr>
+            <td>8777</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>ただの変態だーw</td>
+        </tr>
+    
+        <tr>
+            <td>8776</td>
+            <td><font color="#00bdf7">猫派まじ友達しょくん</font><font color="darkorange">@eSASC0o</font><font color="magenta">猫踏まず教/港あくあ推し</font></td>
+            <td>掃除いやーー</td>
+        </tr>
+    
+        <tr>
+            <td>8775</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>ただの変人だー</td>
+        </tr>
+    
+        <tr>
+            <td>8774</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>( ﾟ∀ﾟ)中二病言い換え楽しい</td>
+        </tr>
+    
+        <tr>
+            <td>8773</td>
+            <td>Yu-i<font color="darkorange">@GIF6fvs</font></td>
+            <td>朝ぶり？</td>
+        </tr>
+    
+        <tr>
+            <td>8772</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>70(｀・ω・´)ゝﾋﾞｼｯ</td>
+        </tr>
+    
+        <tr>
+            <td>8771</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おけい</td>
+        </tr>
+    
+        <tr>
+            <td>8770</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8769</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>67 逆転裁判出てきてて草</td>
+        </tr>
+    
+        <tr>
+            <td>8768</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>元気な証拠(？)</td>
+        </tr>
+    
+        <tr>
+            <td>8767</td>
+            <td><font color="#ffefd5">猫派🐈</font><font color="darkorange">@SJ2lnrv</font><font color="magenta">猫踏まず教(?)</font></td>
+            <td>成歩堂🧐</td>
+        </tr>
+    
+        <tr>
+            <td>8766</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>w</td>
+        </tr>
+    
+        <tr>
+            <td>8765</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>63訳　食いすぎて腹痛い</td>
+        </tr>
+    
+        <tr>
+            <td>8764</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>ありがとぉ</td>
+        </tr>
+    
+        <tr>
+            <td>8763</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>(*^ω^)くっ…我が先程まで暴食の限りを尽くしてしまったため、我が腹に封印されし魔物が暴れている…!</td>
+        </tr>
+    
+        <tr>
+            <td>8762</td>
+            <td><font color="#ffefd5">猫派🐈</font><font color="darkorange">@SJ2lnrv</font><font color="magenta">猫踏まず教(?)</font></td>
+            <td>おめでとう🎉</td>
+        </tr>
+    
+        <tr>
+            <td>8761</td>
+            <td><font color="#ffefd5">猫派🐈</font><font color="darkorange">@SJ2lnrv</font><font color="magenta">猫踏まず教(?)</font></td>
+            <td>えったまごやきモデレーターやん</td>
+        </tr>
+    
+        <tr>
+            <td>8760</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>こっちの県には一人もいないなぁ</td>
+        </tr>
+    
+        <tr>
+            <td>8759</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>あ、そうなんだ((</td>
+        </tr>
+    
+        <tr>
+            <td>8758</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>愛知県民多いよ(</td>
+        </tr>
+    
+        <tr>
+            <td>8757</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>ふぇ〜</td>
+        </tr>
+    
+        <tr>
+            <td>8756</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>同じ県にYuki民、しかもモデがいる喜び(((</td>
+        </tr>
+    
+        <tr>
+            <td>8755</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>小さな幸せ</td>
+        </tr>
+    
+        <tr>
+            <td>8754</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>君の中で<br></td>
+        </tr>
+    
+        <tr>
+            <td>8753</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>つべが重い...</td>
+        </tr>
+    
+        <tr>
+            <td>8752</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>おかー</td>
+        </tr>
+    
+        <tr>
+            <td>8751</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>生きているのに</td>
+        </tr>
+    
+        <tr>
+            <td>8750</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>生きているのに</td>
+        </tr>
+    
+        <tr>
+            <td>8749</td>
+            <td><font color="#ff7f50">生ハム</font><font color="darkorange">@HZPAWCB</font><font color="magenta">土踏まず/白上フブキ推し</font></td>
+            <td>ただいまぁ</td>
+        </tr>
+    
+        <tr>
+            <td>8748</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>さすがたまごさん、わかってるう(</td>
+        </tr>
+    
+        <tr>
+            <td>8747</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>ゆで卵もね(</td>
+        </tr>
+    
+        <tr>
+            <td>8746</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>名古屋の喫茶店で朝にドリンク頼んでみ小倉トーストとサラダとヨーグルトついてくるぞ？(店舗による)</td>
+        </tr>
+    
+        <tr>
+            <td>8745</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>最近までなら近くにコメダあったなぁ</td>
+        </tr>
+    
+        <tr>
+            <td>8744</td>
+            <td><font color="#00ffff">呪術高専2年五条悟</font><font color="darkorange">@sM7sdbS</font></td>
+            <td>ブジ規制</td>
+        </tr>
+    
+        <tr>
+            <td>8743</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>自分愛知県民でっせ</td>
+        </tr>
+    
+        <tr>
+            <td>8742</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>発祥は名古屋の喫茶店です</td>
+        </tr>
+    
+        <tr>
+            <td>8741</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>コメダおいしいすき</td>
+        </tr>
+    
+        <tr>
+            <td>8740</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>39 コメダが有名だからか</td>
+        </tr>
+    
+        <tr>
+            <td>8739</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>名古屋民の命綱()</td>
+        </tr>
+    
+        <tr>
+            <td>8738</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>小倉あんフレンチトースト、だと...？！</td>
+        </tr>
+    
+        <tr>
+            <td>8737</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>36 小倉トースト本当に好きだな（）</td>
+        </tr>
+    
+        <tr>
+            <td>8736</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>お昼ご飯はフレンチトーストでした。閃きました。「・・・これにあんこかければ、最強小倉トースト爆誕するんじゃね？」と・・・・</td>
+        </tr>
+    
+        <tr>
+            <td>8735</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>やっぱ夜の方が人おるか...</td>
+        </tr>
+    
+        <tr>
+            <td>8734</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>違和感ありゅ((</td>
+        </tr>
+    
+        <tr>
+            <td>8733</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>✩☆</td>
+        </tr>
+    
+        <tr>
+            <td>8732</td>
+            <td>究極のメンマ<font color="darkorange">@G4GdaqL</font></td>
+            <td>エビ揉め</td>
+        </tr>
+    
+        <tr>
+            <td>8731</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>28 おかかぁ〜</td>
+        </tr>
+    
+        <tr>
+            <td>8730</td>
+            <td>究極のメンマ<font color="darkorange">@G4GdaqL</font></td>
+            <td>★</td>
+        </tr>
+    
+        <tr>
+            <td>8729</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>𓇼</td>
+        </tr>
+    
+        <tr>
+            <td>8728</td>
+            <td>たまごやき<font color="darkmagenta">@7856LFM</font><font color="magenta">焼きegg&nbsp;土踏まず教教祖</font></td>
+            <td>てす</td>
+        </tr>
+    
+        <tr>
+            <td>8727</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>25 こん〜</td>
+        </tr>
+    
+        <tr>
+            <td>8726</td>
+            <td><font color="#cd853f">紅葉饅頭</font><font color="darkorange">@YBClfeW</font><font color="magenta">猫紅葉/みるくてぃ-教信者</font></td>
+            <td>にゃ</td>
+        </tr>
+    
+        <tr>
+            <td>8725</td>
+            <td>究極のメンマ<font color="darkorange">@G4GdaqL</font></td>
+            <td>浮</td>
+        </tr>
+    
+        <tr>
+            <td>8724</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>8722&gt;&gt; 確かに</td>
+        </tr>
+    
+        <tr>
+            <td>8723</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>このあと合唱リハだ（絶望）</td>
+        </tr>
+    
+        <tr>
+            <td>8722</td>
+            <td><font color="#bf4d4d"> ࣪⊹꒰ঌ苺大福໒꒱ ࣪⊹</font><font color="darkorange">@NdddFDV</font><font color="magenta">🍓|𓇼</font></td>
+            <td>今人おらん時間やね(´・ω・｀)</td>
+        </tr>
+    
+        <tr>
+            <td>8721</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>( ;´ｰ;｀)</td>
+        </tr>
+    
+        <tr>
+            <td>8720</td>
+            <td><font color="#bf4d4d"> ࣪⊹꒰ঌ苺大福໒꒱ ࣪⊹</font><font color="darkorange">@NdddFDV</font><font color="magenta">🍓|𓇼</font></td>
+            <td>(´・ω・｀)</td>
+        </tr>
+    
+        <tr>
+            <td>8719</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>人がおらん</td>
+        </tr>
+    
+        <tr>
+            <td>8718</td>
+            <td>牙笑夢　影<font color="darkorange">@4fgeyJf</font></td>
+            <td>ん</td>
+        </tr>
+    
+        <tr>
+            <td>8717</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8716</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>おk</td>
+        </tr>
+    
+        <tr>
+            <td>8715</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>やばい！1%だ！落ち(学校なう)</td>
+        </tr>
+    
+        <tr>
+            <td>8714</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>ｈｍ</td>
+        </tr>
+    
+        <tr>
+            <td>8713</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>ラピュ、たまご、さおいが俺の中のいつメンだぁ！！(</td>
+        </tr>
+    
+        <tr>
+            <td>8712</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>次受かるとしたら…さおいだなww</td>
+        </tr>
+    
+        <tr>
+            <td>8711</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>俺もそう思ってたwもうなっててもおかしくないなとは思ってたけど、、いやぁ嬉しいねぇ☺️</td>
+        </tr>
+    
+        <tr>
+            <td>8710</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>たまごってモデじゃなかったのか </td>
+        </tr>
+    
+        <tr>
+            <td>8709</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>たまご！？！？！？モデおめでとぉぉぉぉぉぉぉぉお！🎉</td>
+        </tr>
+    
+        <tr>
+            <td>8708</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>帰ってきたら充電2%だったんやがw</td>
+        </tr>
+    
+        <tr>
+            <td>8707</td>
+            <td><font color="#008b8b">⋆｡˚꒰ঌ 𝓐𝓸𝓫𝓪 ໒꒱˚｡⋆</font><font color="darkmagenta">@1xaO2AL</font><font color="magenta">/🌅/浮上率UP期間</font></td>
+            <td>再浮上。</td>
+        </tr>
+    
+        <tr>
+            <td>8706</td>
+            <td><font color="#ffd700">ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>　</td>
+        </tr>
+    
+        <tr>
+            <td>8705</td>
+            <td><font color="#00bdf7">猫派まじ友達しょくん</font><font color="darkorange">@eSASC0o</font><font color="magenta">猫踏まず教/港あくあ推し</font></td>
+            <td>(ﾒｼ)</td>
+        </tr>
+    
+        <tr>
+            <td>8704</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>なんか枠おかしくね</td>
+        </tr>
+    
+        <tr>
+            <td>8703</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>99 （）</td>
+        </tr>
+    
+        <tr>
+            <td>8702</td>
+            <td><font color="#00bdf7">猫派まじ友達しょくん</font><font color="darkorange">@eSASC0o</font><font color="magenta">猫踏まず教/港あくあ推し</font></td>
+            <td>今からﾒッｼ</td>
+        </tr>
+    
+        <tr>
+            <td>8701</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>≫8699 美味しそう？！ </td>
+        </tr>
+    
+        <tr>
+            <td>8700</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>I love Boston Red Sox ┌(┌^o^)┐hoooooooo！</td>
+        </tr>
+    
+        <tr>
+            <td>8699</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>まだお腹空いてるからパナカを…(</td>
+        </tr>
+    
+        <tr>
+            <td>8698</td>
+            <td>抹茶<font color="darkorange">@mOzg3BJ</font><font color="magenta">inboxとランマーヘッド製作所所長の抹茶</font></td>
+            <td>ｈｍ</td>
+        </tr>
+    
+        <tr>
+            <td>8697</td>
+            <td><font color="#cd853f">紅葉饅頭</font><font color="darkorange">@YBClfeW</font><font color="magenta">猫紅葉/みるくてぃ-教信者</font></td>
+            <td>おなかすいたーーーーーーーーーーー！</td>
+        </tr>
+    
+        <tr>
+            <td>8696</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>ﾒｼ食い終わった</td>
+        </tr>
+    
+        <tr>
+            <td>8695</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>あと5分でﾒｯｼ </td>
+        </tr>
+    
+        <tr>
+            <td>8694</td>
+            <td><font color="red">ぱなか</font></td>
+            <td>ﾒｼの時間だ</td>
+        </tr>
+    
+        <tr>
+            <td>8693</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>さあやってまいりました、ご飯落ちです</td>
+        </tr>
+    
+        <tr>
+            <td>8692</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>88つまり空腹</td>
+        </tr>
+    
+        <tr>
+            <td>8691</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>@(・●・)@ </td>
+        </tr>
+    
+        <tr>
+            <td>8690</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>┌(┌^o^)┐hooooooooooooooo！！</td>
+        </tr>
+    
+        <tr>
+            <td>8689</td>
+            <td><font color="#87cefa">涼風 漣</font><font color="darkmagenta">@4968408</font><font color="magenta">☁☽/情緒不安定</font></td>
+            <td>次浮上するの夜8時40分とかそこら()</td>
+        </tr>
+    
+        <tr>
+            <td>8688</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>ボク(一人称(はいま！腹の中に封印されしものがうごめいている！((</td>
+        </tr>
+    
+        <tr>
+            <td>8687</td>
+            <td><font color="#ffd700">(´・ω・)ｷﾓｽｷﾞﾜﾛｽwwwww</font><font color="darkmagenta">@DWHC3RX</font><font color="magenta">└(՞ةڼ◔)」ﾇﾍﾞﾁﾞｮﾝﾇｿﾞｼﾞｮﾝﾍﾞﾙﾐｯﾃｨｽﾓｹﾞﾛﾝﾎﾞｮwww</font></td>
+            <td>┌(┌^o^)┐</td>
+        </tr>
+    
+        <tr>
+            <td>8686</td>
+            <td><font color="#87cefa">涼風 漣</font><font color="darkmagenta">@4968408</font><font color="magenta">☁☽/情緒不安定</font></td>
+            <td>学校終わったから落ちぃ</td>
+        </tr>
+    
+        <tr>
+            <td>8685</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>おk</td>
+        </tr>
+    
+        <tr>
+            <td>8684</td>
+            <td>ただの変人<font color="darkorange">@FouGWVD</font></td>
+            <td>飯落ちだぜ！</td>
+        </tr>
+    
+        <tr>
+            <td>8683</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>おk</td>
+        </tr>
+    
+        <tr>
+            <td>8682</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>≫8680 頑張れ！ </td>
+        </tr>
+    
+        <tr>
+            <td>8681</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>80またね</td>
+        </tr>
+    
+        <tr>
+            <td>8680</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>じゃあ味の向こう側求めてくる。飯落ち</td>
+        </tr>
+    
+        <tr>
+            <td>8679</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>76確かに経験したことあるわ</td>
+        </tr>
+    
+        <tr>
+            <td>8678</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>77 パリーグ圧倒的最下位の球団があってだな、、、</td>
+        </tr>
+    
+        <tr>
+            <td>8677</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>≫8670 何その弱そうなところ </td>
+        </tr>
+    
+        <tr>
+            <td>8676</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>味の向こう側とはごはんを噛み続けると味がなくなるが、そのまま噛み続けると一瞬ふわりとした甘さを感じるというものです</td>
+        </tr>
+    
+        <tr>
+            <td>8675</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>74草</td>
+        </tr>
+    
+        <tr>
+            <td>8674</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>8672 意外と現実的な時間</td>
+        </tr>
+    
+        <tr>
+            <td>8673</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>西武ライオンズ＝西武鉄道＝黄色((先入観(</td>
+        </tr>
+    
+        <tr>
+            <td>8672</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>味の向こう側を体験するには約30分かかります</td>
+        </tr>
+    
+        <tr>
+            <td>8671</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>ｱｼﾞﾉﾓﾄ♩(((</td>
+        </tr>
+    
+        <tr>
+            <td>8670</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>埼玉＝西武ライオンズ</td>
+        </tr>
+    
+        <tr>
+            <td>8669</td>
+            <td>満俺電池<font color="darkmagenta">@YDCSJEl</font></td>
+            <td>みんなで味の向こう側を体験しようぜ(？)</td>
+        </tr>
+    
+        <tr>
+            <td>8668</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>埼玉＝京浜東北＝鉄博＝鉄道の聖地</td>
+        </tr>
+    
+        <tr>
+            <td>8667</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>東京都、大阪府	、神奈川県に人口密度負けてる, </td>
+        </tr>
+    
+        <tr>
+            <td>8666</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>埼玉かぁ</td>
+        </tr>
+    
+        <tr>
+            <td>8665</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>≫8662 (^-^) </td>
+        </tr>
+    
+        <tr>
+            <td>8664</td>
+            <td>夕暮<font color="darkorange">@XCXEOOJ</font><font color="magenta">七色に光る土踏まず</font></td>
+            <td>６６１　ラッパー梵頭が怒るぞ(</td>
+        </tr>
+    
+        <tr>
+            <td>8663</td>
+            <td>あげまつ<font color="darkorange">@SSrbUSS</font></td>
+            <td>奈良？</td>
+        </tr>
+    
+        <tr>
+            <td>8662</td>
+            <td>夕暮<font color="darkorange">@XCXEOOJ</font><font color="magenta">七色に光る土踏まず</font></td>
+            <td>６６０　埼玉</td>
+        </tr>
+    
+        <tr>
+            <td>8661</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>愛知の領土、又の名を岐阜(((岐阜県民にあやまれ</td>
+        </tr>
+    
+        <tr>
+            <td>8660</td>
+            <td><font color="#40e0d0">幸せok</font><font color="darkmagenta">@lA7Am8f</font><font color="magenta">𓇼🐢👻</font></td>
+            <td>千葉県より人口多いよ </td>
+        </tr>
+    
+        <tr>
+            <td>8659</td>
+            <td>すりーぶいえふ<font color="darkorange">@JU6Dmcn</font></td>
+            <td>海なし山梨</td>
+        </tr>
+    
+        <tr>
+            <td>0</td>
+            <td><font color="red">カルパス財団</font></td>
+            <td>ｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽｶﾙﾊﾟｽ</td>
+        </tr>
+    
+</tbody></table></div>
+<script>
+  function AutoLink(str) {
+  var regexp_url = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g; // ']))/;
+  var regexp_makeLink = function(all, url, h, href) {
+      return '<a href="h' + href + '">' + url + '</a>';
+  }
+ 
+  return str.replace(regexp_url, regexp_makeLink);
+}
+let element = document.getElementById('filter');
+let channel = document.getElementById('channel')
+function reloadmessages(){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/bbs/api?channel="+channel.value+"&verify="+element.checked+"&t="+Date.now());
+      xhr.onload = function () {
+          if (xhr.status == 200) {
+              document.getElementById('messages').innerHTML = AutoLink(xhr.responseText);
+          }
+      };
+      xhr.send();
+}
+reloadmessages();
+setTimeout(reloadmessages,1000)
+setInterval(reloadmessages,5000);
+</script>
+ 
+ 
+ 
+ 
+ 
+<script>
+let new_input_elm = document.createElement('div');
+new_input_elm.id = 'message_log_div';
+new_input_elm.innerHTML = '<input id="message_log" style="display: none;"><button onclick="copy_message_log()">Copy message log</button>（キーボードショートカットで保存し（同時に1つのみ可能）、左のボタンからコピーできる）';
+document.getElementsByTagName('div')[0].after(new_input_elm);;
+  
+let formElm = document.getElementsByTagName('form')[0];
+let messageElm = document.getElementsByName('message')[0];
+let channelElms = document.getElementsByTagName('option');
+let seedElm = document.getElementsByName('seed')[0];
+let messageLogElm = document.getElementById('message_log');
+ 
+document.addEventListener('keydown', function(event) {
+  if((event.ctrlKey || event.metaKey) && event.shiftKey){
+    
+    console.log(event.code);
+    
+    switch(event.code){
+      case 'KeyM':
+        event.preventDefault()
+        messageElm.focus();
+        break
+ 
+      case 'KeyN':
+        event.preventDefault()
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+        break
+        
+      case 'KeyH':
+        event.preventDefault()
+        location.replace("/");
+        break
+        
+      case 'KeyR':
+        event.preventDefault()
+        reloadmessages()
+        // location.replace(location.href);
+        break
+      
+      case 'KeyL':
+        event.preventDefault()
+        if(!(messageElm.value == '')){
+          formElm.submit();
+        }
+        break
+        
+      case 'KeyJ':
+        event.preventDefault()
+        channelElms[0].toggleAttribute('selected');
+        channelElms[1].toggleAttribute('selected');
+        reloadmessages()
+        
+        setTimeout(function() {
+          update_comments_num();
+        }, 300);
+        break
+ 
+      case 'KeyB':
+        event.preventDefault()
+        seedElm.classList.toggle('hiddenElm');
+        break
+ 
+      case 'KeyK':
+        event.preventDefault()
+        document.cookie = "yuki=True;Max-Age:0;";
+        window.open('https://www.google.com/', '_self');
+        break
+ 
+      case 'KeyG':
+        event.preventDefault()
+        var messages_log = document.getElementById('messages').innerHTML;
+        messageLogElm.value = messages_log.toString();
+        console.log(messages_log);
+        break
+        
+      // 端末によっては、Slashの場合既存のキーボードショートカットと重複するのでPeriodを追加した。
+      case 'Slash':
+      case 'Period':
+        event.preventDefault()
+        document.getElementById('shortcut_help').classList.toggle('hiddenElm');
+        break
+    }
+  }
+});
+ 
+document.getElementsByTagName('form')[0].setAttribute('onsubmit', 'return checkForm()')
+  
+function checkForm(){
+  if(document.getElementsByName('message')[0].value.includes(document.getElementsByName('seed')[0].value)){
+    console.log('error: メッセージの中にシードが含まれています。')
+    return false
+  }else{
+    console.log('confilm')
+    return true
+  }
+}
+ 
+function copy_message_log(){
+  
+  if(!navigator.clipboard){
+    alert("Error: コピー出来ません。ブラウザが対応していない可能性があります。");
+    return
+  }
+  
+  const content = document.getElementById('message_log').value;
+  
+  if(content == ''){
+    alert('ログがありません。')
+    return
+  }
+  
+  navigator.clipboard.writeText(content).then(
+    () => {
+      alert('コピーしました。');
+    },
+    () => {
+      alert('コピーに失敗しました。');
+    });
+  
+}
+</script>
+<!-- Made by LunaKamituki（神月瑠奈） -->
+<style>
+  .hiddenElm{
+    display: none;
+  }
+  
+  #shortcut_help{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 5px;
+    padding: 5px;
+    background-color: #cfcfcf;
+    border-radius: 15px; 
+  }
+</style>
+ 
+<div id="shortcut_help" class="hiddenElm">
+  <h3>キーボードショートカットヘルプ</h3>
+  
+  <table border="1" style="background-color: #efefef;">
+    <tbody><tr>
+      <th>キー</th>
+      <th>イベント</th>
+    </tr>
+    <tr style="display: none;">
+      <td>更新待機中...</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + R</td>
+      <td>投稿を更新</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + H</td>
+      <td>Yuki Youtubeホームへ移動</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + L</td>
+      <td>送信</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + N</td>
+      <td>ページトップまで移動</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + M</td>
+      <td>メッセージ入力状態に変更</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + J</td>
+      <td>チャンネルを変更</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + B</td>
+      <td>シードを表示/非表示</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + K</td>
+      <td>Googleを開く</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + G</td>
+      <td>実行時点での投稿ログを取る</td>
+    </tr>
+    <tr>
+      <td>Ctrl(⌘,Windows) + Shift + /(.)</td>
+      <td>ヘルプを表示</td>
+    </tr>
+  </tbody></table>
+</div>
+ 
+<script>
+  let second_a_tag = document.getElementsByTagName('a')[1];
+  
+  if(second_a_tag.href == location.protocol + '//' + location.hostname + '/bbs/how'){
+    let new_div = document.createElement('div');
+    new_div.id = 'shortcut_help_button_div';
+    new_div.innerHTML = '<button onclick="document.getElementById(\'shortcut_help\').classList.toggle(\'hiddenElm\')">キーボードショートカットヘルプを表示/非表示</button>';
+    second_a_tag.after(new_div)
+  }
+</script>
+<!-- Made by LunaKamituki（神月瑠奈） -->
+<!-- Yuki BBSに追加するコード2（投稿No.表示） -->
+ 
+<style>
+  .red{
+    background-color: #e55555;
+  }
+  .blue{
+    background-color: #2fa1ff;
+  }
+</style>
+<script>
+let new_div_elm = document.createElement('div');
+new_div_elm.id = 'comments_num_info';
+new_div_elm.textContent = '更新待機中...';
+document.getElementsByTagName('h2')[0].before(new_div_elm);
+ 
+function update_comments_num(){
+  let infoElm = document.getElementById('comments_num_info')
+  const comments_num = document.getElementsByTagName('td')[0].textContent
+  infoElm.textContent = `現在のコメント数は${comments_num}です。`
+  if(comments_num > 9900){
+    if(!(infoElm.classList.contains('red'))){
+      infoElm.classList.add('red')
+    }
+  }else{
+    infoElm.classList.remove('red')
+  };
+  return
+}
+ 
+update_comments_num(); setTimeout(update_comments_num,1000); setInterval(update_comments_num,5000);
+ 
+let new_title_div_elm = document.createElement('div');
+new_title_div_elm.id = 'title_div';
+document.getElementsByTagName('div')[0].after(new_title_div_elm)
+document.getElementById('title_div').innerHTML = '<input id="title_input" value="連番を簡単に生成！！"><button onclick="document.getElementsByTagName(\'title\')[0].textContent = document.getElementById(\'title_input\').value">titleを変更</button>'
+ 
+document.getElementById('channel').setAttribute('onchange', 'reloadmessages();setTimeout(function(){update_comments_num();},300);')</script>
+</body></html>

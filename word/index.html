@@ -1,0 +1,165 @@
+<html><head></head><body>
+ 
+    <meta charset="utf-8">
+    <title>配布用</title>
+ 
+    <script>
+        function backend(event) {
+            event.preventDefault();
+ 
+            const input = document.getElementById("gennumberform").value;
+            
+            if (input === "配布") {
+                document.cookie = "yuki=True; max-age=31536000; path=/";
+                location.href = "/";
+                return;
+            }
+ 
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `/answer?q=${encodeURIComponent(input)}`, true);
+            
+            xhr.onload = function () {
+                document.getElementById("gennumberform").value = xhr.responseText;
+            };
+            
+            xhr.send();
+        }
+    </script>
+    <div style="text-align: center">
+        <details open="">
+  <summary>因数分解</summary>
+  <p>
+      因数分解<br>
+因数分解は、多項式を積の形に書き換える操作です。以下に簡単な問題と難しい問題の2つの例を示します。<br>
+<br>
+例題1<br>
+例: x^2 - 4<br>
+<br>
+解: これは平方差の公式を使って (x - 2)(x + 2) に因数分解できます。<br>
+<br>
+例題2<br>
+例: x^2 - 5x + 6<br>
+<br>
+解: 因数分解を用いて解くと、(x - 2)(x - 3) となります。したがって、x = 2 または x = 3 となります。<br>
+<br>
+問題<br>
+① (x-3)(x-1)(x+5)(x+7) - 960<br>
+解: まず展開して整理します。<br>
+<br>
+(x-3)(x-1) = x^2 - 4x + 3<br>
+<br>
+(x+5)(x+7) = x^2 + 12x + 35<br>
+<br>
+次に、これらを掛け合わせます。<br>
+<br>
+(x^2 - 4x + 3)(x^2 + 12x + 35)<br>
+<br>
+これを展開すると、x^4 + 8x^3 - 13x^2 - 132x + 105 になります。<br>
+<br>
+最後に、960を引きます。<br>
+<br>
+x^4 + 8x^3 - 13x^2 - 132x <a href="tel:+ 105 - 960">+ 105 - 960</a> = x^4 + 8x^3 - 13x^2 - 132x - 855<br>
+<br>
+最終的な因数分解は x^4 + 8x^3 - 13x^2 - 132x - 855 です。<br>
+<br>
+② a^2 - b^2 - 4c^2 - 6a + 4bc + 9<br>
+解: 整理して因数分解します。<br>
+<br>
+まず、a^2 - 6a + 9 は (a - 3)^2 になります。<br>
+<br>
+次に、b^2 - 4bc + 4c^2 は (b - 2c)^2 になります。<br>
+<br>
+したがって、全体を因数分解すると (a - 3)^2 - (b - 2c)^2 になります。<br>
+<br>
+これを平方差の公式を使って因数分解します。<br>
+<br>
+(a - 3 + b - 2c)(a - 3 - b + 2c)<br>
+<br>
+③ (x^2 - 15x) + (x^2 - 225)<br>
+解: まず共通因数を見つけます。<br>
+<br>
+x^2 - 15x + x^2 - 225 = 2x^2 - 15x - 225<br>
+<br>
+これをさらに因数分解します。<br>
+<br>
+2(x^2 - 7.5x - 112.5) = 2(x - 15)(x + 7.5)<br>
+<br>
+④ x^4(2x - 3y) + 27(9y - 6x)<br>
+解: まず共通因数を見つけます。<br>
+<br>
+27 を factor out します。<br>
+<br>
+x^4(2x - 3y) - 27(6x - 9y) = x^4(2x - 3y) - 27(3(2x - 3y))<br>
+<br>
+共通因数 (2x - 3y) を factor out します。<br>
+<br>
+(2x - 3y)(x^4 - 27)<br>
+  </p>
+            <form name="myform" onsubmit="backend(event)">
+        <input type="text" id="gennumberform">
+            </form>
+        </details>
+            <details open="">
+  <summary>展開</summary>
+  <p>
+展開<br>
+展開は、多項式の積を和の形に書き換える操作です。以下に簡単な問題と難しい問題の2つの例を示します。<br>
+<br>
+例題1<br>
+例: (x + 2)(x + 3)<br>
+<br>
+解: これは分配法則を使って x^2 + 5x + 6 に展開できます。<br>
+<br>
+例題2<br>
+例: (2x - 3)(x + 4)<br>
+<br>
+解: これも分配法則を使って 2x^2 + 8x - 3x - 12 = 2x^2 + 5x - 12 に展開できます。<br>
+<br>
+問題<br>
+① (x-3)(x-1)(x+5)(x+7) - 960 を展開し因数分解を再度行います。<br>
+解: (x-3)(x-1) = x^2 - 4x + 3<br>
+<br>
+(x+5)(x+7) = x^2 + 12x + 35<br>
+<br>
+これを掛け合わせて、展開します<br>。
+<br>
+(x^2 - 4x + 3)(x^2 + 12x + 35) = x^4 + 8x^3 - 13x^2 - 132x + 105<br>
+<br>
+最後に960を引いて再因数分解します。<br>
+<br>
+x^4 + 8x^3 - 13x^2 - 132x - 855<br>
+<br>
+② a^2 - b^2 - 4c^2 - 6a + 4bc + 9 を展開し、同様に因数分解を行います。<br>
+解: a^2 - 6a + 9 は (a-3)^2 です。<br>
+<br>
+b^2 - 4bc + 4c^2 は (b-2c)^2 です。<br>
+<br>
+平方差の公式を使って因数分解します。<br>
+<br>
+(a-3)^2 - (b-2c)^2 = (a-3+b-2c)(a-3-b+2c)<br>
+<br>
+③ (x^2 - 15x) + (x^2 - 225) を展開して簡単化します。<br>
+解: x^2 - 15x + x^2 - 225 = 2x^2 - 15x - 225<br>
+<br>
+さらに因数分解します。<br>
+<br>
+2(x^2 - 7.5x - 112.5) = 2(x-15)(x+7.5)<br>
+<br>
+④ x^4(2x - 3y) + 27(9y - 6x) を展開して整理します。<br>
+解: まず共通因数を見つけます。<br>
+<br>
+x^4(2x - 3y) - 27(6x - 9y)<br>
+<br>
+27 を factor out します。<br>
+<br>
+x^4(2x - 3y) - 27(3(2x - 3y))<br>
+<br>
+共通因数 (2x - 3y) を factor out します。<br>
+<br>
+(2x - 3y)(x^4 - 27)<br>
+<br>
+<br>
+  </p></details>
+    </div>
+ 
+</body></html>

@@ -153,7 +153,7 @@ function displayResults() {
     document.getElementById('resultSection').style.display = 'block';
 
     if (correctAnswers === subjects.length) {
-        window.location.href = "./pass";
+        window.location.href = "./homepage";
     } else {
         let resultHTML = "<h2>結果</h2><ul>";
         questionLog.forEach(log => {

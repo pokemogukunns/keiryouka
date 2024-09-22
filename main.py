@@ -174,6 +174,7 @@ from typing import Union
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/css", StaticFiles(directory="./css"), name="static")
 app.mount("/Q", StaticFiles(directory="./問題", html=True), name="static")
+app.mount("/word", StaticFiles(directory="./word", html=True), name="static")
 app.mount("/blog", StaticFiles(directory="./blog", html=True), name="static")
 app.mount("/energyno", StaticFiles(directory="./energyno", html=True), name="static")
 app.mount("/pass", StaticFiles(directory="./pass", html=True), name="static")

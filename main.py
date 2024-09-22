@@ -173,10 +173,13 @@ from typing import Union
 
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/css", StaticFiles(directory="./css"), name="static")
+app.mount("/Q", StaticFiles(directory="./問題", html=True), name="static")
 app.mount("/blog", StaticFiles(directory="./blog", html=True), name="static")
 app.mount("/energyno", StaticFiles(directory="./energyno", html=True), name="static")
 app.mount("/pass", StaticFiles(directory="./pass", html=True), name="static")
 app.mount("/home", StaticFiles(directory="./homwpage", html=True), name="static")
+app.mount("/cookie", StaticFiles(directory="./Cookie", html=True), name="static")
+app.mount("/homepage", StaticFiles(directory="./pokki", html=True), name="static")
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 from fastapi.templating import Jinja2Templates

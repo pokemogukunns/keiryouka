@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学習クイズ</title>
+    <link rel="stylesheet" href="問題/style.css">
+</head>
+<body>
+    <div id="startSection">
+        <h1>学年を選んでクイズに挑戦しよう！</h1>
+        <select id="grade">
+            <option value="">学年を選択</option>
+            <option value="1">小学1年生</option>
+            <option value="2">小学2年生</option>
+            <option value="3">小学3年生</option>
+            <option value="4">小学4年生</option>
+            <option value="5">小学5年生</option>
+            <option value="6">小学6年生</option>
+            <option value="7">中学1年生</option>
+            <option value="8">中学2年生</option>
+            <option value="9">中学3年生</option>
+            <option value="10">高校1年生</option>
+            <option value="11">高校2年生</option>
+            <option value="12">高校3年生</option>
+        </select>
+        <button id="startQuiz">クイズスタート</button>
+    </div>
+
+    <div id="quizSection" style="display: none;">
+        <h2>問題</h2>
+        <div id="question"></div>
+        <input type="text" id="answerInput" placeholder="答えを入力">
+        <button id="submitAnswer">送信</button>
+    </div>
+
+    <div id="resultSection" style="display: none;">
+        <div id="result"></div>
+    </div>
+
+    <script src="問題/script.js"></script>
+</body>
+</html>

@@ -201,7 +201,32 @@
 			     			       <tbody>
                                        <tr>
                                            <td nowrap="">
-                                            <font size="2">動画配信</font>
+                                            <font size="2"><span id="page-category"></span></font>
+<script>
+    // ページのURLのパスを取得
+    const url = window.location.href.toLowerCase();
+
+    // カテゴリの設定
+    let category = "不明";
+    if (url.includes("porn") || url.includes("adult")) {
+        category = "ポルノ・アダルトサイト";
+    } else if (url.includes("video")) {
+        category = "動画配信";
+    } else if (url.includes("music")) {
+        category = "音楽配信";
+    } else if (url.includes("game")) {
+        category = "ゲーム";
+    } else if (url.includes("blocked")) {
+        category = "URLによりブロックされました";
+    } else if (url.includes("translate") || url.includes("webconvert")) {
+        category = "web翻訳・web変換";
+    } else if (url.includes("antisocial")) {
+        category = "反社会サイト";
+    }
+
+    // カテゴリをHTMLに表示
+    document.getElementById('page-category').textContent = category;
+</script>
                                            </td>
                                        </tr>
 			     			    </tbody>

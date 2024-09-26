@@ -310,7 +310,27 @@
  
 	<table border="0" cellpadding="4" cellspacing="0"><tbody><tr>
 	  <td><font size="2">DateTime:</font></td>
-	  <td><font size="2">2024/09/26 16:43:53</font></td>
+	  <td>
+		  <font size="2"><div id="clock"></div>
+<script>
+    function updateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // 月は0から始まるので+1
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('clock').textContent = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+    }
+
+    // 初回の時間表示
+    updateTime();
+    // 1秒ごとに時間を更新
+    setInterval(updateTime, 1000);
+</script>
+</font>
+</td>
 	</tr>
     </tbody>
     </table>	

@@ -1,43 +1,1912 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学習クイズ</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div id="startSection">
-        <h1>学年を選んでクイズに挑戦しよう<a herf="./word">！</a></h1>
-        <select id="grade">
-            <option value="">学年を選択</option>
-            <option value="1">小学1年生</option>
-            <option value="2">小学2年生</option>
-            <option value="3">小学3年生</option>
-            <option value="4">小学4年生</option>
-            <option value="5">小学5年生</option>
-            <option value="6">小学6年生</option>
-            <option value="7">中学1年生</option>
-            <option value="8">中学2年生</option>
-            <option value="9">中学3年生</option>
-            <option value="10">高校1年生</option>
-            <option value="11">高校2年生</option>
-            <option value="12">高校3年生</option>
-        </select>
-        <button id="startQuiz">クイズスタート</button>
+<html class="js no-applicationcache geolocation history postmessage svg websockets localstorage sessionstorage websqldatabase webworkers hashchange audio canvas canvastext webgl video cssgradients opacity multiplebgs rgba inlinesvg hsla supports svgclippaths smil generatedcontent fontface textshadow cssanimations borderimage backgroundsize boxshadow borderradius csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox cssreflections csstransforms csstransitions csstransforms3d indexeddb indexeddb-deletedatabase" lang="ja-JP"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://www.commufa.jp//-/media/Feature/Experience-Accelerator/Bootstrap-4/Bootstrap-4/Styles/bootstrap-grid.css?rev=-1&amp;hash=1B40E68124CD0595658061312CE9AE6F" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/mediaelementplayer.css?rev=-1&amp;hash=E5912DA707E813F912F9A1C48BDB853A" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/mediaelementplayer-legacy.css?rev=-1&amp;hash=464EC2EBD1DFA2885127CD1B672A11E5" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/font-awesomemin.css?rev=-1&amp;hash=7583AE5982C29E735575345BD231B409" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/fullcalendar.css?rev=-1&amp;hash=968F9D2C9CB668464C69E25756EECFE2" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/jquerymCustomScrollbar.css?rev=-1&amp;hash=8CAB93B523B2DD6132E0DADF5CBE7A3F" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Core-Libraries/styles/jquery-ui.css?rev=-1&amp;hash=147C1F24C22D187E4000CEE1BD409ED3" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Main-Theme/styles/author.css?rev=-1&amp;hash=32DD7A80D165C1E437B729D6B6055356" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Main-Theme/styles/core.css?rev=-1&amp;hash=CF520BBD8A3423A06F5E6A643C8E5756" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Main-Theme/styles/file-type-icons.css?rev=-1&amp;hash=A8C701EDA0A6C0655AECDAD855DDDBEE" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Main-Theme/styles/grayscale-mode.css?rev=-1&amp;hash=9424BB9878198B72056428022C08EFF1" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Base-Themes/Main-Theme/styles/reset.css?rev=-1&amp;hash=414B9201A0C58AD0E2526E8558A75CB0" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/article_promo.css?rev=09fc3d24d7084c79899c89ac438d02e3&amp;hash=352C94A36EA7F9F1A0F9A97F551D54AC" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/bootstrap-45.css?rev=d1e51655199f4ee3bb21c8fef94d5880&amp;hash=5EED75E37AE6385B5E26C7832720DA45" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/container.css?rev=88e569a9157e4d5ea144f756e0356a9e&amp;hash=475BBF8A28FF2E4F3E414BB65FDA11EE" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/import_fonts.css?rev=0907da3e1aa34a48bc1c2a94c30567ab&amp;hash=EAB08462D552C6A5079801E1C5A7230D" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/reset.css?rev=2b7b6ed6432e4cf1b255d6bb1a7211f1&amp;hash=B73ED8B0B2F141B65F57E84EB57F04D8" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/border.css?rev=03d45037926143eab8b570406476102c&amp;hash=9F665AE5343FDDD2A14414C78E436DB9" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/breadcrumb.css?rev=d3d832e9220f45d79f58d947e20a6b40&amp;hash=A743DE7D9839B8C2E429C1BFAFEFA8A6" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/button.css?rev=d2e582034b594a70a08f05fe6a284bc6&amp;hash=F30EBC01D0B35B02181D5F5C581A566C" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/color.css?rev=e0fac6afe63143b4a8874734fbefe778&amp;hash=81449264E6B3C98EEA4744B4C32EE4B9" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/common.css?rev=79fcfe4b4e0a414fb922c60a78ea86e4&amp;hash=4D24EC41D9969AE05EB41296327C3073" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/blue_banner.css?rev=4de4e30b4c204f96a1af6b951cdfcc9b&amp;hash=8BEA4DDEEB14BB298F1D237839AFC295" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/component.css?rev=215f0cc72e144aeabd18828ec60f0e9d&amp;hash=F7FD075F8EF150FFEB26E2A70C0D19CC" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/contact_info.css?rev=c3e2a5def45a484ca2052da4b02e65e5&amp;hash=9C213D805C7FDBC5CC10B201F8902275" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/editor.css?rev=412ca5b6aa174793852b7664296c4dd9&amp;hash=0F977770C6DBABE2C701C0D9DAF9DC69" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/footer_bottom.css?rev=0931256cd6fa40528e0238fb10ab309d&amp;hash=A51315BBB5E303ED2FF792C52A389811" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/header_line.css?rev=6cb1bf5ca6de42928946a9ca8ca7b266&amp;hash=C2A8675A2797E8B39884122ED52B9F3B" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/hero_banner.css?rev=3c6490fd902c429c88ec9f838bdd41cf&amp;hash=2CB381E7E283749A3D6953B54FCA08F1" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/icon_group.css?rev=50260b36f61b4a2abc36f0eff78988c4&amp;hash=291B9503BB2A1CB9A09A5CF2CB631BA1" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/img_banner.css?rev=f3894ff95d1240649085febf1858a94c&amp;hash=001A1C39D60BFC07424D1469AF773DDE" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/modal.css?rev=4498b3053b9f4dd5994abdd2ef51b42c&amp;hash=C47D5A38D8375113B7D257D0183A8D05" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/notice_list.css?rev=7e863122231946e08b8f96348ab4b719&amp;hash=71F0D81D86F2EA1E269AEA8127B672E1" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/page_title.css?rev=c3570a2de32847eab1e5f6cb9ec86b2f&amp;hash=583330EC35BE2D9244A6CC0F0D24BE0A" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/pager.css?rev=cfe253f3495a41c28f0e5fba12e9a559&amp;hash=7DF06BA5436D4836CB3C92BA7A365B9A" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/site_map.css?rev=579dd7de38de44d5bfd3dd98abb62c3c&amp;hash=BAE63C9DD5F7DC8D57B53DDB33D44F1D" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/tabs.css?rev=fb9b340648884880b7a4724a5288eedd&amp;hash=FBAB9747A77EFABD33C07C9996988931" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/text.css?rev=b2fd5ca06e964441881c4856ebf4a418&amp;hash=91BD384AACE72F6BA898D6600FB32CDD" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/title.css?rev=5315e314bdc64bb0b059c351df0794c4&amp;hash=529187CD7A741B556097A1E06B0A2821" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/toastrmin.css?rev=982c8114f66a492da7fbea3aa172fdef&amp;hash=F9902AF8689D4A4E230491B3A4F048CF" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_style/top.css?rev=e063661146f14e2dac83a294acda1f61&amp;hash=F4E88E54467071466FC5E282702A04B2" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_parts/gnav_sub/css/gnav_sub.css?rev=2fe880fe15c54a14940f192dc45ad383&amp;hash=691C49638D57670E8F34F9A81A461113" rel="stylesheet">
+<link href="https://www.commufa.jp//-/media/Themes/commufa/commufa/commufa/styles/common_parts/gnav_sub_sp/css/gnav_sub_sp.css?rev=20f8c79e7f0f40308163a65ab1ad4e97&amp;hash=D4AE3DBA339B23BD56BB211A6720C289" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/article_share.css?rev=3d66e931609f4a8fa3213387bbf8dcac" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/article_tag.css?rev=caf49ff6629e4382a2dc2766782d528d" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/img_article.css?rev=16bed307d1a0421ab167fe4a55efb269" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/img_num_article.css?rev=15beffe56d9a445aa9e3ae85c91dce44" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/recommend_tag.css?rev=eb1b8feaa6ab45c4a85b8def088705dc" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/css/common.css?rev=35bab69bfe3a4350acd6d307fdd84387" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/article_main.css?rev=b2e57589787549e8a01f454ee027daee" rel="stylesheet">
+                <link href="https://www.commufa.jp//-/media/Project/commufa/commufa/css/article/article_content.css?rev=2957444e32ae42af8ae7e6faa71b5562" rel="stylesheet">
+ 
+        <!-- OpenGraph -->
+        <meta property="og:title" content="動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介">
+        <meta property="og:description" content="移動中や旅行先でも、インターネットにつながる環境であれば映画やドラマが楽しめる便利な時代になりました。ですが、外出先だと通信量が気になったりスムーズに見られなかったりと、快適に楽しむにはまだ少し気になる部分も。">
+        <meta property="og:url" content="https://www.commufa.jp/article/0128">
+            <meta property="og:image" content="https://www.commufa.jp/-/media/Project/commufa/commufa/images/article/0128/128_main.png?rev=7d67de25b9164c2cb8c453ba69fd4ea1">
+        <meta property="og:type" content="article">
+            <meta property="og:site_name" content="commufa">
+        <meta property="og:locale" content="ja-JP">
+        <!-- Twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@commufa">
+        <!--MobileTopSessionClass-->
+ 
+    
+<meta name="VIcurrentDateTime" content="638637947153798137">
+<meta name="VirtualFolder" content="/">
+<script async="" src="https://d.line-scdn.net/n/line_tag/public/release/v1/lt.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-734418591&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://bat.bing.com/bat.js"></script><script type="text/javascript" async="" src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script><script type="text/javascript" async="" src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/destination?id=AW-10804078859&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-10804078859&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-F6L3Y6CGQ8&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TRTQFK"></script><script type="text/javascript" src="/layouts/system/VisitorIdentification.js"></script>
+ 
+    
+ 
+ 
+<!-- Google Tag Manager -->
+<script>
+(function (w, d, s, l, i) {
+w[l] = w[l] || []; w[l].push({
+'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+}); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TRTQFK');
+</script>
+<!-- End Google Tag Manager -->
+ 
+ 
+    <title>動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介</title>
+ 
+ 
+<link rel="canonical" href="https://www.commufa.jp/article/0128">
+ 
+ 
+<meta name="Description" content="移動中や旅行先でも、インターネットにつながる環境であれば映画やドラマが楽しめる便利な時代になりました。ですが、外出先だと通信量が気になったりスムーズに見られなかったりと、快適に楽しむにはまだ少し気になる部分も。">
+    <link href="https://mc-9364b848-931f-4e9f-ac25-190190-cdn-endpoint.azureedge.net/-/media/Project/commufa/commufa/images/common/favicon.ico?rev=62efabd7e89d4128a34bd4ebf687d8fe" rel="shortcut icon">
+ 
+ 
+ 
+ 
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+<script type="application/ld+json">{
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement":
+        [
+            {
+            "@type": "ListItem",
+                     "position": 1,
+                     "name": "コミュファ光 公式サイト",
+                     "item": "https://www.commufa.jp/"
+        },{
+            "@type": "ListItem",
+                     "position": 2,
+                     "name": "コミュファ光の「光回線お役立ち情報」",
+                     "item": "https://www.commufa.jp/article"
+        },{
+            "@type": "ListItem",
+                     "position": 3,
+                     "name": "動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介"
+        }
+        ]
+        }</script><link rel="stylesheet" type="text/css" href="/layouts/system/VisitorIdentificationCSS.aspx?tstamp=1728197917185"><script type="module" src="https://modules.promolayer.io/index.js" data-pluid="reEFRRPwYaa7bKbCKHi0hJ9LINX2" data-workspace="2ZekOKa8I1xJw1iHBK9E" async=""></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/10804078859/?random=1728197917440&amp;cv=11&amp;fst=1728197917440&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4a20v868915554z872203743za201&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101671035~101747727&amp;u_w=810&amp;u_h=1080&amp;url=https%3A%2F%2Fwww.commufa.jp%2Farticle%2F0128&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%E5%8B%95%E7%94%BB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81YouTube%E5%8B%95%E7%94%BB%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9&amp;npa=0&amp;pscdl=noapi&amp;auid=117348905.1728197917&amp;fdr=QA&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/10804078859/?random=1728197917468&amp;cv=11&amp;fst=1728197917468&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4a20v868915554z872203743za200&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101671035~101747727&amp;u_w=810&amp;u_h=1080&amp;url=https%3A%2F%2Fwww.commufa.jp%2Farticle%2F0128&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%E5%8B%95%E7%94%BB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81YouTube%E5%8B%95%E7%94%BB%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9&amp;npa=0&amp;pscdl=noapi&amp;auid=117348905.1728197917&amp;fdr=QA&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/734418591/?random=1728197917502&amp;cv=11&amp;fst=1728197917502&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be4a20v9105417470z872203743za201zb72203743&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=101529666~101671035~101747727&amp;u_w=810&amp;u_h=1080&amp;url=https%3A%2F%2Fwww.commufa.jp%2Farticle%2F0128&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%E5%8B%95%E7%94%BB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81YouTube%E5%8B%95%E7%94%BB%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9&amp;npa=0&amp;pscdl=noapi&amp;auid=117348905.1728197917&amp;fdr=QA&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" src="https://b99.yahoo.co.jp/pagead/conversion_async.js"></script><script src="https://bat.bing.com/p/action/343043039.js" type="text/javascript" async="" data-ueto="ueto_5966a961d6"></script><style>@charset "UTF-8";/*!
+ * animate.css - https://animate.style/
+ * Version - 4.1.1
+ * Licensed under the Hippocratic License 2.1 - http://firstdonoharm.dev
+ *
+ * Copyright (c) 2022 Animate.css
+ */._sticker_r6uut_9{--animate-duration: 1s;--animate-delay: 1s;--animate-repeat: 1}._animate__animated_r6uut_15{animation-duration:var(--animate-duration);animation-fill-mode:both}._animate__animated_r6uut_15._animate__infinite_r6uut_20{animation-iteration-count:infinite}._animate__animated_r6uut_15._animate__repeat-1_r6uut_24{animation-iteration-count:var(--animate-repeat)}._animate__animated_r6uut_15._animate__repeat-2_r6uut_28{animation-iteration-count:calc(var(--animate-repeat) * 2)}._animate__animated_r6uut_15._animate__repeat-3_r6uut_32{animation-iteration-count:calc(var(--animate-repeat) * 3)}._animate__animated_r6uut_15._animate__delay-1s_r6uut_36{animation-delay:var(--animate-delay)}._animate__animated_r6uut_15._animate__delay-2s_r6uut_40{animation-delay:calc(var(--animate-delay) * 2)}._animate__animated_r6uut_15._animate__delay-3s_r6uut_44{animation-delay:calc(var(--animate-delay) * 3)}._animate__animated_r6uut_15._animate__delay-4s_r6uut_48{animation-delay:calc(var(--animate-delay) * 4)}._animate__animated_r6uut_15._animate__delay-5s_r6uut_52{animation-delay:calc(var(--animate-delay) * 5)}._animate__animated_r6uut_15._animate__faster_r6uut_56{animation-duration:calc(var(--animate-duration) / 2)}._animate__animated_r6uut_15._animate__fast_r6uut_56{animation-duration:calc(var(--animate-duration) * .8)}._animate__animated_r6uut_15._animate__slow_r6uut_64{animation-duration:calc(var(--animate-duration) * 2)}._animate__animated_r6uut_15._animate__slower_r6uut_68{animation-duration:calc(var(--animate-duration) * 3)}@media print{._animate__animated_r6uut_15{animation-duration:1ms!important;transition-duration:1ms!important;animation-iteration-count:1!important}._animate__animated_r6uut_15[class*=Out]{opacity:0}}@keyframes _bounce_r6uut_1{0%,20%,53%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1);transform:translateZ(0)}40%,43%{animation-timing-function:cubic-bezier(.755,.05,.855,.06);transform:translate3d(0,-30px,0) scaleY(1.1)}70%{animation-timing-function:cubic-bezier(.755,.05,.855,.06);transform:translate3d(0,-15px,0) scaleY(1.05)}80%{-webkit-transition-timing-function:cubic-bezier(.215,.61,.355,1);transition-timing-function:cubic-bezier(.215,.61,.355,1);transform:translateZ(0) scaleY(.95)}90%{transform:translate3d(0,-4px,0) scaleY(1.02)}}._animate__bounce_r6uut_116{animation-name:_bounce_r6uut_1;transform-origin:center bottom}@keyframes _flash_r6uut_1{0%,50%,to{opacity:1}25%,75%{opacity:0}}._animate__flash_r6uut_134{animation-name:_flash_r6uut_1}@keyframes _pulse_r6uut_1{0%{transform:scaleZ(1)}50%{transform:scale3d(1.05,1.05,1.05)}to{transform:scaleZ(1)}}._animate__pulse_r6uut_153{animation-name:_pulse_r6uut_1;animation-timing-function:ease-in-out}@keyframes _rubberBand_r6uut_1{0%{transform:scaleZ(1)}30%{transform:scale3d(1.25,.75,1)}40%{transform:scale3d(.75,1.25,1)}50%{transform:scale3d(1.15,.85,1)}65%{transform:scale3d(.95,1.05,1)}75%{transform:scale3d(1.05,.95,1)}to{transform:scaleZ(1)}}._animate__rubberBand_r6uut_188{animation-name:_rubberBand_r6uut_1}@keyframes _shakeX_r6uut_1{0%,to{transform:translateZ(0)}10%,30%,50%,70%,90%{transform:translate3d(-10px,0,0)}20%,40%,60%,80%{transform:translate3d(10px,0,0)}}._animate__shakeX_r6uut_214{animation-name:_shakeX_r6uut_1}@keyframes _shakeY_r6uut_1{0%,to{transform:translateZ(0)}10%,30%,50%,70%,90%{transform:translate3d(0,-10px,0)}20%,40%,60%,80%{transform:translate3d(0,10px,0)}}._animate__shakeY_r6uut_240{animation-name:_shakeY_r6uut_1}@keyframes _headShake_r6uut_1{0%{transform:translate(0)}6.5%{transform:translate(-6px) rotateY(-9deg)}18.5%{transform:translate(5px) rotateY(7deg)}31.5%{transform:translate(-3px) rotateY(-5deg)}43.5%{transform:translate(2px) rotateY(3deg)}50%{transform:translate(0)}}._animate__headShake_r6uut_270{animation-timing-function:ease-in-out;animation-name:_headShake_r6uut_1}@keyframes _swing_r6uut_1{20%{transform:rotate3d(0,0,1,15deg)}40%{transform:rotate3d(0,0,1,-10deg)}60%{transform:rotate3d(0,0,1,5deg)}80%{transform:rotate3d(0,0,1,-5deg)}to{transform:rotate3d(0,0,1,0)}}._animate__swing_r6uut_297{transform-origin:top center;animation-name:_swing_r6uut_1}@keyframes _tada_r6uut_1{0%{transform:scaleZ(1)}10%,20%{transform:scale3d(.9,.9,.9) rotate3d(0,0,1,-3deg)}30%,50%,70%,90%{transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,3deg)}40%,60%,80%{transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,-3deg)}to{transform:scaleZ(1)}}._animate__tada_r6uut_330{animation-name:_tada_r6uut_1}@keyframes _wobble_r6uut_1{0%{transform:translateZ(0)}15%{transform:translate3d(-25%,0,0) rotate3d(0,0,1,-5deg)}30%{transform:translate3d(20%,0,0) rotate3d(0,0,1,3deg)}45%{transform:translate3d(-15%,0,0) rotate3d(0,0,1,-3deg)}60%{transform:translate3d(10%,0,0) rotate3d(0,0,1,2deg)}75%{transform:translate3d(-5%,0,0) rotate3d(0,0,1,-1deg)}to{transform:translateZ(0)}}._animate__wobble_r6uut_365{animation-name:_wobble_r6uut_1}@keyframes _jello_r6uut_1{0%,11.1%,to{transform:translateZ(0)}22.2%{transform:skew(-12.5deg) skewY(-12.5deg)}33.3%{transform:skew(6.25deg) skewY(6.25deg)}44.4%{transform:skew(-3.125deg) skewY(-3.125deg)}55.5%{transform:skew(1.5625deg) skewY(1.5625deg)}66.6%{transform:skew(-.78125deg) skewY(-.78125deg)}77.7%{transform:skew(.390625deg) skewY(.390625deg)}88.8%{transform:skew(-.1953125deg) skewY(-.1953125deg)}}._animate__jello_r6uut_405{animation-name:_jello_r6uut_1;transform-origin:center}@keyframes _heartBeat_r6uut_1{0%{transform:scale(1)}14%{transform:scale(1.3)}28%{transform:scale(1)}42%{transform:scale(1.3)}70%{transform:scale(1)}}._animate__heartBeat_r6uut_432{animation-name:_heartBeat_r6uut_1;animation-duration:calc(var(--animate-duration) * 1.3);animation-timing-function:ease-in-out}@keyframes _backInDown_r6uut_1{0%{transform:translateY(-1200px) scale(.7);opacity:.7}80%{transform:translateY(0) scale(.7);opacity:.7}to{transform:scale(1);opacity:1}}._animate__backInDown_r6uut_456{animation-name:_backInDown_r6uut_1}@keyframes _backInLeft_r6uut_1{0%{transform:translate(-2000px) scale(.7);opacity:.7}80%{transform:translate(0) scale(.7);opacity:.7}to{transform:scale(1);opacity:1}}._animate__backInLeft_r6uut_477{animation-name:_backInLeft_r6uut_1}@keyframes _backInRight_r6uut_1{0%{transform:translate(2000px) scale(.7);opacity:.7}80%{transform:translate(0) scale(.7);opacity:.7}to{transform:scale(1);opacity:1}}._animate__backInRight_r6uut_498{animation-name:_backInRight_r6uut_1}@keyframes _backInUp_r6uut_1{0%{transform:translateY(1200px) scale(.7);opacity:.7}80%{transform:translateY(0) scale(.7);opacity:.7}to{transform:scale(1);opacity:1}}._animate__backInUp_r6uut_519{animation-name:_backInUp_r6uut_1}@keyframes _bounceIn_r6uut_1{0%,20%,40%,60%,80%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:scale3d(.3,.3,.3)}20%{transform:scale3d(1.1,1.1,1.1)}40%{transform:scale3d(.9,.9,.9)}60%{opacity:1;transform:scale3d(1.03,1.03,1.03)}80%{transform:scale3d(.97,.97,.97)}to{opacity:1;transform:scaleZ(1)}}._animate__bounceIn_r6uut_562{animation-duration:calc(var(--animate-duration) * .75);animation-name:_bounceIn_r6uut_1}@keyframes _bounceInDown_r6uut_1{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,-3000px,0) scaleY(3)}60%{opacity:1;transform:translate3d(0,25px,0) scaleY(.9)}75%{transform:translate3d(0,-10px,0) scaleY(.95)}90%{transform:translate3d(0,5px,0) scaleY(.985)}to{transform:translateZ(0)}}._animate__bounceInDown_r6uut_599{animation-name:_bounceInDown_r6uut_1}@keyframes _bounceInLeft_r6uut_1{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(-3000px,0,0) scaleX(3)}60%{opacity:1;transform:translate3d(25px,0,0) scaleX(1)}75%{transform:translate3d(-10px,0,0) scaleX(.98)}90%{transform:translate3d(5px,0,0) scaleX(.995)}to{transform:translateZ(0)}}._animate__bounceInLeft_r6uut_635{animation-name:_bounceInLeft_r6uut_1}@keyframes _bounceInRight_r6uut_1{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(3000px,0,0) scaleX(3)}60%{opacity:1;transform:translate3d(-25px,0,0) scaleX(1)}75%{transform:translate3d(10px,0,0) scaleX(.98)}90%{transform:translate3d(-5px,0,0) scaleX(.995)}to{transform:translateZ(0)}}._animate__bounceInRight_r6uut_671{animation-name:_bounceInRight_r6uut_1}@keyframes _bounceInUp_r6uut_1{0%,60%,75%,90%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:translate3d(0,3000px,0) scaleY(5)}60%{opacity:1;transform:translate3d(0,-20px,0) scaleY(.9)}75%{transform:translate3d(0,10px,0) scaleY(.95)}90%{transform:translate3d(0,-5px,0) scaleY(.985)}to{transform:translateZ(0)}}._animate__bounceInUp_r6uut_707{animation-name:_bounceInUp_r6uut_1}@keyframes _fadeIn_r6uut_1{0%{opacity:0}to{opacity:1}}._animate__fadeIn_r6uut_722{animation-name:_fadeIn_r6uut_1}@keyframes _fadeInDown_r6uut_1{0%{opacity:0;transform:translate3d(0,-100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInDown_r6uut_738{animation-name:_fadeInDown_r6uut_1}@keyframes _fadeInDownBig_r6uut_1{0%{opacity:0;transform:translate3d(0,-2000px,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInDownBig_r6uut_754{animation-name:_fadeInDownBig_r6uut_1}@keyframes _fadeInLeft_r6uut_1{0%{opacity:0;transform:translate3d(-100%,0,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInLeft_r6uut_770{animation-name:_fadeInLeft_r6uut_1}@keyframes _fadeInLeftBig_r6uut_1{0%{opacity:0;transform:translate3d(-2000px,0,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInLeftBig_r6uut_786{animation-name:_fadeInLeftBig_r6uut_1}@keyframes _fadeInRight_r6uut_1{0%{opacity:0;transform:translate3d(100%,0,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInRight_r6uut_802{animation-name:_fadeInRight_r6uut_1}@keyframes _fadeInRightBig_r6uut_1{0%{opacity:0;transform:translate3d(2000px,0,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInRightBig_r6uut_818{animation-name:_fadeInRightBig_r6uut_1}@keyframes _fadeInUp_r6uut_1{0%{opacity:0;transform:translate3d(0,100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInUp_r6uut_834{animation-name:_fadeInUp_r6uut_1}@keyframes _fadeInUpBig_r6uut_1{0%{opacity:0;transform:translate3d(0,2000px,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInUpBig_r6uut_850{animation-name:_fadeInUpBig_r6uut_1}@keyframes _fadeInTopLeft_r6uut_1{0%{opacity:0;transform:translate3d(-100%,-100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInTopLeft_r6uut_865{animation-name:_fadeInTopLeft_r6uut_1}@keyframes _fadeInTopRight_r6uut_1{0%{opacity:0;transform:translate3d(100%,-100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInTopRight_r6uut_880{animation-name:_fadeInTopRight_r6uut_1}@keyframes _fadeInBottomLeft_r6uut_1{0%{opacity:0;transform:translate3d(-100%,100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInBottomLeft_r6uut_895{animation-name:_fadeInBottomLeft_r6uut_1}@keyframes _fadeInBottomRight_r6uut_1{0%{opacity:0;transform:translate3d(100%,100%,0)}to{opacity:1;transform:translateZ(0)}}._animate__fadeInBottomRight_r6uut_910{animation-name:_fadeInBottomRight_r6uut_1}@keyframes _flip_r6uut_1{0%{transform:perspective(400px) scaleZ(1) translateZ(0) rotateY(-360deg);animation-timing-function:ease-out}40%{transform:perspective(400px) scaleZ(1) translateZ(150px) rotateY(-190deg);animation-timing-function:ease-out}50%{transform:perspective(400px) scaleZ(1) translateZ(150px) rotateY(-170deg);animation-timing-function:ease-in}80%{transform:perspective(400px) scale3d(.95,.95,.95) translateZ(0) rotateY(0);animation-timing-function:ease-in}to{transform:perspective(400px) scaleZ(1) translateZ(0) rotateY(0);animation-timing-function:ease-in}}._animate__animated_r6uut_15._animate__flip_r6uut_947{-webkit-backface-visibility:visible;backface-visibility:visible;animation-name:_flip_r6uut_1}@keyframes _flipInX_r6uut_1{0%{transform:perspective(400px) rotateX(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateX(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateX(10deg);opacity:1}80%{transform:perspective(400px) rotateX(-5deg)}to{transform:perspective(400px)}}._animate__flipInX_r6uut_979{-webkit-backface-visibility:visible!important;backface-visibility:visible!important;animation-name:_flipInX_r6uut_1}@keyframes _flipInY_r6uut_1{0%{transform:perspective(400px) rotateY(90deg);animation-timing-function:ease-in;opacity:0}40%{transform:perspective(400px) rotateY(-20deg);animation-timing-function:ease-in}60%{transform:perspective(400px) rotateY(10deg);opacity:1}80%{transform:perspective(400px) rotateY(-5deg)}to{transform:perspective(400px)}}._animate__flipInY_r6uut_1011{-webkit-backface-visibility:visible!important;backface-visibility:visible!important;animation-name:_flipInY_r6uut_1}@keyframes _lightSpeedInRight_r6uut_1{0%{transform:translate3d(100%,0,0) skew(-30deg);opacity:0}60%{transform:skew(20deg);opacity:1}80%{transform:skew(-5deg)}to{transform:translateZ(0)}}._animate__lightSpeedInRight_r6uut_1038{animation-name:_lightSpeedInRight_r6uut_1;animation-timing-function:ease-out}@keyframes _lightSpeedInLeft_r6uut_1{0%{transform:translate3d(-100%,0,0) skew(30deg);opacity:0}60%{transform:skew(-20deg);opacity:1}80%{transform:skew(5deg)}to{transform:translateZ(0)}}._animate__lightSpeedInLeft_r6uut_1063{animation-name:_lightSpeedInLeft_r6uut_1;animation-timing-function:ease-out}@keyframes _rotateIn_r6uut_1{0%{transform:rotate3d(0,0,1,-200deg);opacity:0}to{transform:translateZ(0);opacity:1}}._animate__rotateIn_r6uut_1081{animation-name:_rotateIn_r6uut_1;transform-origin:center}@keyframes _rotateInDownLeft_r6uut_1{0%{transform:rotate3d(0,0,1,-45deg);opacity:0}to{transform:translateZ(0);opacity:1}}._animate__rotateInDownLeft_r6uut_1098{animation-name:_rotateInDownLeft_r6uut_1;transform-origin:left bottom}@keyframes _rotateInDownRight_r6uut_1{0%{transform:rotate3d(0,0,1,45deg);opacity:0}to{transform:translateZ(0);opacity:1}}._animate__rotateInDownRight_r6uut_1115{animation-name:_rotateInDownRight_r6uut_1;transform-origin:right bottom}@keyframes _rotateInUpLeft_r6uut_1{0%{transform:rotate3d(0,0,1,45deg);opacity:0}to{transform:translateZ(0);opacity:1}}._animate__rotateInUpLeft_r6uut_1132{animation-name:_rotateInUpLeft_r6uut_1;transform-origin:left bottom}@keyframes _rotateInUpRight_r6uut_1{0%{transform:rotate3d(0,0,1,-90deg);opacity:0}to{transform:translateZ(0);opacity:1}}._animate__rotateInUpRight_r6uut_1149{animation-name:_rotateInUpRight_r6uut_1;transform-origin:right bottom}@keyframes _hinge_r6uut_1{0%{animation-timing-function:ease-in-out}20%,60%{transform:rotate3d(0,0,1,80deg);animation-timing-function:ease-in-out}40%,80%{transform:rotate3d(0,0,1,60deg);animation-timing-function:ease-in-out;opacity:1}to{transform:translate3d(0,700px,0);opacity:0}}._animate__hinge_r6uut_1179{animation-duration:calc(var(--animate-duration) * 2);animation-name:_hinge_r6uut_1;transform-origin:top left}@keyframes _jackInTheBox_r6uut_1{0%{opacity:0;transform:scale(.1) rotate(30deg);transform-origin:center bottom}50%{transform:rotate(-10deg)}70%{transform:rotate(3deg)}to{opacity:1;transform:scale(1)}}._animate__jackInTheBox_r6uut_1206{animation-name:_jackInTheBox_r6uut_1}@keyframes _rollIn_r6uut_1{0%{opacity:0;transform:translate3d(-100%,0,0) rotate3d(0,0,1,-120deg)}to{opacity:1;transform:translateZ(0)}}._animate__rollIn_r6uut_1223{animation-name:_rollIn_r6uut_1}@keyframes _zoomIn_r6uut_1{0%{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}._animate__zoomIn_r6uut_1239{animation-name:_zoomIn_r6uut_1}@keyframes _zoomInDown_r6uut_1{0%{opacity:0;transform:scale3d(.1,.1,.1) translate3d(0,-1000px,0);animation-timing-function:cubic-bezier(.55,.055,.675,.19)}60%{opacity:1;transform:scale3d(.475,.475,.475) translate3d(0,60px,0);animation-timing-function:cubic-bezier(.175,.885,.32,1)}}._animate__zoomInDown_r6uut_1257{animation-name:_zoomInDown_r6uut_1}@keyframes _zoomInLeft_r6uut_1{0%{opacity:0;transform:scale3d(.1,.1,.1) translate3d(-1000px,0,0);animation-timing-function:cubic-bezier(.55,.055,.675,.19)}60%{opacity:1;transform:scale3d(.475,.475,.475) translate3d(10px,0,0);animation-timing-function:cubic-bezier(.175,.885,.32,1)}}._animate__zoomInLeft_r6uut_1275{animation-name:_zoomInLeft_r6uut_1}@keyframes _zoomInRight_r6uut_1{0%{opacity:0;transform:scale3d(.1,.1,.1) translate3d(1000px,0,0);animation-timing-function:cubic-bezier(.55,.055,.675,.19)}60%{opacity:1;transform:scale3d(.475,.475,.475) translate3d(-10px,0,0);animation-timing-function:cubic-bezier(.175,.885,.32,1)}}._animate__zoomInRight_r6uut_1293{animation-name:_zoomInRight_r6uut_1}@keyframes _zoomInUp_r6uut_1{0%{opacity:0;transform:scale3d(.1,.1,.1) translate3d(0,1000px,0);animation-timing-function:cubic-bezier(.55,.055,.675,.19)}60%{opacity:1;transform:scale3d(.475,.475,.475) translate3d(0,-60px,0);animation-timing-function:cubic-bezier(.175,.885,.32,1)}}._animate__zoomInUp_r6uut_1311{animation-name:_zoomInUp_r6uut_1}@keyframes _slideInDown_r6uut_1{0%{transform:translate3d(0,-100%,0);visibility:visible}to{transform:translateZ(0)}}._animate__slideInDown_r6uut_1328{animation-name:_slideInDown_r6uut_1}@keyframes _slideInLeft_r6uut_1{0%{transform:translate3d(-100%,0,0);visibility:visible}to{transform:translateZ(0)}}._animate__slideInLeft_r6uut_1343{animation-name:_slideInLeft_r6uut_1}@keyframes _slideInRight_r6uut_1{0%{transform:translate3d(100%,0,0);visibility:visible}to{transform:translateZ(0)}}._animate__slideInRight_r6uut_1358{animation-name:_slideInRight_r6uut_1}@keyframes _slideInUp_r6uut_1{0%{transform:translate3d(0,100%,0);visibility:visible}to{transform:translateZ(0)}}._animate__slideInUp_r6uut_1373{animation-name:_slideInUp_r6uut_1}</style><link rel="stylesheet" type="text/css" href="/layouts/system/VIChecker.aspx?tstamp=638637947153798137"></head>
+<body class="default-device bodyclass" data-contactid="95f5a912-0c86-4693-aa5c-d77cf62ce17a">
+    <div id="contents">
+        
+ 
+ 
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRTQFK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        
+<!-- #wrapper -->
+<div id="wrapper">
+    <!-- #header -->
+    <header>
+        <div id="header" class="container">
+            
+    <div class="component ctc-header">
+        <div class="component-content">
+<div class="js_ctc_header ctc_global_header">
+	<div class="ctc_global_header_utility_wrapper">
+		<div class="ctc_global_header_utility">
+			
+			<div class="_logo">
+				<a href="/">
+					<img src="/-/media/Project/commufa/commufa/images/2022/logo/logo_commufa_byctc.png" alt="コミュファ by ctc">
+				</a>
+			</div>
+			
+			<div class="_link">
+				<div class="application_btn header_sp_only">
+					<a href="/inquiry#inquiry_newapplication">お申し込み</a>
+				</div>
+				<div class="contact_btn">
+					<a href="/inquiry">お問い合わせ</a>
+				</div>
+				<div class="qa_btn header_pc_only">
+					<a href="https://faq.commufa.jp/?site_domain=default">よくある質問</a>
+				</div>
+				<div class="my_commufa_btn">
+					<a href="/api/sitecore/loginuser/login?startURL=//mypage.commufa.jp">Myコミュファ</a>
+				</div>
+				<div class="webmail_btn header_pc_only">
+					<a href="https://mail.commufa.jp/">Webメール</a>
+				</div>
+				<div class="header_pc_only">
+					<div class="_contact_area">
+						<div class="orange_btn btn_accent bg_left">
+							<a href="https://area.commufa.jp/commufa/map/index.asp?option=portal&amp;jutaku=ko">
+								戸建住宅でお申し込み
+							</a>
+						</div>
+						<div class="deep_orange_btn btn_accent bg_left">
+							<a href="/services/areasearch_m">
+								集合住宅でお申し込み
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="menu_btn header_sp_only">
+					<div class="menu_btn_icon">
+						<span></span>
+						<span></span>
+						<span></span>
+						<p>メニュー</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ctc_global_header_navigation_wrapper">
+		<div class="ctc_global_header_navigation">
+			<ul class="link-list_navigation">
+				<li class="_item"><a href="/step">ご契約中のお客さま</a></li>
+				<li class="_item"><a href="/services/information">お申し込みをご検討中のお客さま</a></li>
+				<li class="_item"><a href="/mansion/owner01">マンションオーナーさま</a></li>
+				<li class="_item"><a href="/#corporate_services">法人のお客さま</a></li>
+				<li class="_item"><a href="/services/commufanet">auひかりご利用者さま</a></li>
+			</ul>
+			<div class="_contact_area header_sp_only">
+				<div class="orange_btn btn_accent bg_left">
+					<a href="https://area.commufa.jp/commufa/map/index.asp?option=portal&amp;jutaku=ko">
+						戸建住宅でお申し込み
+					</a>
+				</div>
+				<div class="deep_orange_btn btn_accent bg_left">
+					<a href="/services/areasearch_m">
+						集合住宅でお申し込み
+					</a>
+				</div>
+			</div>
+			<div class="_link header_sp_only">
+				<div class="qa_btn"><a href="https://faq.commufa.jp/?site_domain=default">よくある質問</a></div>
+				<div class="my_commufa_login_btn"><a href="/api/sitecore/loginuser/login?startURL=//mypagedev.commufa.jp">Myコミュファログイン</a></div>
+				<div class="webmail_btn"><a href="https://mail.commufa.jp/">Webメール</a></div>
+				<div class="contact_btn"><a href="/inquiry">お問い合わせ</a></div>
+			</div>
+			<form action="/api/sitecore/search" method="get" target="_blank" class="header_pc_only">
+				<div class="search_box">
+					<input class="text_box" type="search" placeholder="サイト内検索" name="query">
+					<input class="search_icon" type="image" src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_search_br_01.png">
+					<input type="hidden" name="site" value="LMW0QZQ0">
+					<input type="hidden" name="charset" value="UTF-8">
+					<input type="hidden" name="design" value="7">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="ctc_global_header_menu_bg"></div>
+</div>        </div>
     </div>
-
-    <div id="quizSection" style="display: none;">
-        <h2>問題</h2>
-        <div id="question"></div>
-        <input type="text" id="answerInput" placeholder="答えを入力">
-        <button id="submitAnswer">送信</button>
+ 
+        </div>
+    </header>
+    <!-- /#header -->
+    <!-- #content -->
+    <main>
+        <div id="content" class="container">
+            
+ 
+<div class="component ctc-breadcrumb navigation-title col-12">
+    <div class="component-content">
+        <nav class="breadcrumb initialized">
+            <ol class="breadcrumb_list">
+                    <li class="breadcrumb-item home">
+<div class="navigation-title field-articletitle"><a title="Home" href="/">コミュファ光 公式サイト</a></div>                            <span class="separator">&gt;</span>
+                    </li>
+                    <li class="breadcrumb-item ">
+<div class="navigation-title field-title"><a title="article" href="/article">コミュファ光の「光回線お役立ち情報」</a></div>                            <span class="separator">&gt;</span>
+                    </li>
+                    <li class="breadcrumb-item last">
+<div class="navigation-title field-articletitle"><a title="0128" href="/article/0128">動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介</a></div>                            <span class="separator">&gt;</span>
+                    </li>
+            </ol>
+        </nav>
     </div>
-
-    <div id="resultSection" style="display: none;">
-        <div id="result"></div>
+</div>
+ 
+ 
+<div class="component image-banner col-12">
+    <div class="component-content">
+ 
+<div class="img_banner pattern_1">
+    <div class="banner_image">
+      <img src="/-/media/Project/commufa/commufa/images/article/0128/128_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=7d67de25b9164c2cb8c453ba69fd4ea1&amp;hash=3064AAAD85E6DD88C9162FFA89010EC8" alt="128_main" width="960" height="300">
+       <div id="banner_image_tag">インターネット</div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
+    </div>
+</div>
+    <div class="component ctc article infromation col-12">
+        <div class="component-content">
+ 
+ 
+    
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+<div class="title_normal_wrapper left">
+    <h1 article-category="インターネット" article-title="動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介" article-link="/article" class="title_normal cjk">
+        動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介
+    </h1>
+</div>
+ 
+ 
+ 
+    <div class="article_tag">
+        <div class="tag_main_content">
+            <img src="/-/media/Themes/commufa/master/master/images/Article/icn_wifi_kun_small.png?rev=485f973e926e47c09f51e7ad110fe3f6">
+            <div class="tag_details">
+                 <p class="date_text">
+                    コミュファ光が2023年6月1日に更新</p> 
+                <div class="hashtag_group">
+                    
+                          <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=インターネット">インターネット</a>
+                    
+                          <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=DAZN">DAZN</a>
+                    
+                          <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=Netflix">Netflix</a>
+                    
+                          <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=速度">速度</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="share_sns_tag">
+            
+            
+            
+            
+            
+                
+                
+                
+                
+                <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=https://www.commufa.jp/article/0128&amp;quote=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_facebook_small.png?rev=058be964c5b146ce8789facbf513b73a"></a>
+                
+            
+                
+                
+                
+                
+                <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=https://www.commufa.jp/article/0128&amp;text=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_twitter_small.png?rev=d9163c111f0a462288c5dafe19766540"></a>
+                
+            
+                
+                
+                
+                
+                <a href="#" onclick="window.open('https://social-plugins.line.me/lineit/share?url=https://www.commufa.jp/article/0128&amp;text=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_line_small.png?rev=fd41489122b14513a4cecdf62550943c"></a>
+                
+            
+        </div>
+    </div>
+    <div class="row">
+ 
+    <div class="component rich-text col-12">
+        <div class="component-content">
+<div class="component rich-text col-12">
+	<div class="component-content">
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						移動中や旅行先でも、インターネットにつながる環境であれば映画やドラマが楽しめる便利な時代になりました。ですが、外出先だと通信量が気になったりスムーズに見られなかったりと、快適に楽しむにはまだ少し気になる部分も。手元の端末で動画をダウンロードして、インターネット環境がなくてもオフラインで見られれば便利なのに…と思う方も多いはず。
+					</p>
+					<p class="a">
+						しかし、ダウンロード＝違法行為と耳にしたことがあるため、動画のダウンロードはできないとあきらめていませんか？実は、動画をダウンロードすること自体は違法ではなく、誰でも手軽にお好みの動画をダウンロードして楽しむことができます。この記事では、動画のダウンロードにおいて、どのような場合に違法になるのか、ダウンロードする際の注意点や保存方法を解説。また、おすすめの動画配信サービスや動画視聴をおトクに楽しむ方法をあわせて紹介します。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Title-->
+		<section class="container sp_container article_title">
+			<div class="title_normal_wrapper left wrapper_under_line">
+				<h2 class="title_normal blue cjk commufa_title_index left_line_before ">動画をダウンロードする際の注意点</h2>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						まずは、「YouTube」などの動画配信サービスで動画をダウンロードする際に注意すべき点を見ていきましょう。動画をダウンロードするうえで把握しておきたいのが、著作権の扱いについてです。以下より、どのような行為が著作権に抵触し、何に気を付ければ気兼ねなくお気に入りの動画をダウンロードして楽しめるのか詳しく解説します。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">ダウンロードした動画は私的利用に限定する</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						まず前提として、「動画のダウンロード＝違法」ではありません。動画のダウンロードは動画配信サービスから手元のデバイスに複製することを意味しますが、この行為そのものは著作権の例外として認められており、違法ではないとされています。しかし、これはあくまでも「私的利用」、つまり個人で楽しむためにダウンロードする場合に限るということを覚えておきましょう。
+					</p>
+					<p class="a">
+						例えば、YouTubeなどでダウンロードした動画をDVD 形式ファイルに変換して販売したり、自身のブログでダウンロードできるようにしたり、誰かに貸し出したりすることは違法行為にあたります。また、ダウンロードした動画をカットしたり抜粋したり、編集して手を加えて再配布する場合も法律違反になるので注意が必要です。再配布は前述のように、販売、再配信、貸与に加え、動画サイトやSNSなどへのアップロードも該当するため、インターネット上での扱いにも気を付けてください。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Image Left-->
+		<div class="container sp_container mt_20 mb_20">
+			<div class="article_promo width_full">
+				<div class="article_promo_image pc_width_half">
+					<img height="300" width="480" alt="128_sub1" src="/-/media/Project/commufa/commufa/images/article/0128/128_sub1.png?rev=fbab1c82e6794b538cf550a714b89d03&amp;hash=C8BDDF4F414D388C5D32A130A0D9F45B">
+				</div>
+				<div class="article_promo_sentence no_margin txt_l">
+					<p class="a text_left">
+						なかには、違法行為にあたらないように「動画を友人に紹介したい」と思うこともあるでしょう。そうしたときに便利なのが「共有リンク」です。YouTubeの動画の下にある「共有」というボタンを押すと、URLやHTMLの「埋め込みコード」を取得できます。これをコピーすることはダウンロードにあたらないため、リンクをブログやSNSに貼ってシェアすることが可能です。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">著作権を侵害する動画をダウンロードしない</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						次に大切なのが、「ダウンロードしたい動画が著作権を侵害していないか」というポイント。従来の著作権にまつわる法律では「著作権を侵害した動画をアップロード（違法アップロード）した人」が処罰の対象でした。しかし、2010年1月1日の著作権法改正で、「著作権を侵害したコンテンツをダウンロードした人」も罪に問われるようになり、ダウンロードの際にはより注意が必要になったのです。
+					</p>
+					<p class="a">
+						著作権を侵害しているコンテンツだと知りながら、違法アップロード動画をダウンロードすることは違法行為にあたり、さらにこのようなコンテンツの場合は、販売・配信・貸与はもちろん、私的利用としてのダウンロードも認められていないため、気を付けてください。
+					</p>
+					<p class="a">
+						つまり、動画をダウンロードすることそのものは基本的に違法行為ではありませんが、ダウンロードしたい動画が違法アップロード動画である場合は違法行為になってしまうということです。ダウンロードする際は、保存したい動画や音楽などが著作権を侵害していないかどうかに注視し、見極める必要があります。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Title-->
+		<section class="container sp_container article_title">
+			<div class="title_normal_wrapper left wrapper_under_line">
+				<h2 class="title_normal blue cjk commufa_title_index left_line_before ">動画のダウンロード方法</h2>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						では実際に、ダウンロードをどのような手順で行えばよいか大まかな流れを確認してみましょう。「YouTube」は多くの人に親しまれている動画配信サービスですが、実は無料版ではダウンロードできる動画はごく一部。ここでは、有料のサブスクリプション・サービス「Youtube Premium」を例に、動画のダウンロード方法を紹介します。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">YouTube公式有料アプリの保存機能で動画をダウンロードする</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						基本的に無料で動画を閲覧、アップロードできるYouTubeですが、より快適にYouTubeを楽しむために「YouTube Premium」が用意されているのをご存知でしょうか。月額1,180円（税込/2022年10月時点の料金）で楽しめる月額制のプレミアムサービスで、無料版より快適に動画が楽しめる機能が詰め込まれています。主な特長は、以下の通りです。
+					</p>
+					<p class="a">
+						・広告なしで視聴可能<br>
+						・動画のバックグラウンド再生に対応<br>
+						・動画をダウンロードしてオフライン再生できる<br>
+						・YouTube Originalsの映画や番組を視聴できる<br>
+						・YouTube Music Premiumを追加料金なしで利用できる
+					</p>
+					<p class="a">
+						動画を視聴する際の広告表示もなく、YouTubeアプリを閉じてほかのアプリに切り替えても音楽を聴き続けられるバックグラウンド再生に対応、動画のダウンロード機能もあり、ネットワーク環境のない場所でもお気に入りの動画が楽しめます。また、オリジナル作品を制作・配信しているYouTube Originalsでは、独自配信の映画や番組も視聴可能。さらに楽曲が豊富なYouTube Music Premiumも無料で利用できる画期的なオプションサービスです。
+					</p>
+					<p class="a">
+						【YouTube Premiumでのダウンロード方法】<br>
+						それでは、YouTube Premiumでの動画のダウンロード方法を具体的に見ていきましょう。
+					</p>
+					<p class="a">
+						1.ダウンロードしたい動画の下部にある「オフライン」を選択します。<br>
+						2.ダウンロードする画質（144p･360p･720p･1080pのいずれか）を選択してください。<br>
+						3.オフラインボタンにダウンロード状況が表示されます。<br>
+						4.オフラインボタンが青色になればダウンロード完了です。
+					</p>
+					<p class="a">
+						このように、簡単な4ステップで、動画がダウンロードできます。<br>
+						ダウンロードの際に、高画質を選択するほど綺麗な映像が保存できますが、高画質な動画ほど通信量やデータ容量も増えるという点に注意してください。モバイル通信でダウンロードする場合や、通信量を節約したい場合は360pくらいの数字を選んでダウンロードするとよいでしょう。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">動画のURLを調べてダウンロードソフト・サイトで動画をダウンロードする</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						YouTube Premiumに加入せずとも、ダウンロードする方法はあります。それはURLをコピーして、ダウンロードサイトやソフトなどで保存する方法です。
+					</p>
+					<p class="a">
+						YouTubeなど多くの動画サイトでは、Webページのソースコードに動画の所在を示したURLが記述されており、これをダウンロードサイトやソフトに入力することで保存できます。
+					</p>
+					<p class="a">
+						【動画のURLを調べてダウンロードする方法】<br>
+						1.ダウンロードしたい動画の上で右クリック。<br>
+						2.「検証」を選び、ソースコードを表示します。<br>
+						3.ソースコードの中から「http」「https」で始まり、かつ末尾に「.mp4」「.flv」「.mov」などの拡張子が付いたリンクを見つけてください。<br>
+						4.URLをコピーします。<br>
+						5.ダウンロードサイト・ソフトなどにペーストしたら完了です。
+					</p>
+					<p class="a">
+						ブラウザやソフトがあれば簡単にダウンロードできる便利な方法ですが、ダウンロードの前に一度、違法アップロード動画でないか入念にチェックしておきましょう。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">動画をダウンロードせず、録画で保存する</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						上記で紹介したダウンロード方法以外にも、デバイスに動画を保存する方法があります。ここでは、端末の録画機能を使った方法を、iPhone・Android OS別にそれぞれ順番に紹介するので参考にしてみてください。
+					</p>
+					<p class="a">
+						【iPhoneでの録画方法】<br>
+						iPhoneの「画面収録」機能はiOS11以降に搭載されている機能なので、まずはOSがアップデートできているか確認しておきましょう。無事確認できたら、「設定」アプリを開き「コントロールセンター」→「コントロールをカスタマイズ」をタップ。「画面収録」の横に「＋」と書かれたアイコンを押すと、コントロールセンターに「画面収録」ボタンが表示されるようになります。ここまで準備できたら、あとは以下の簡単なステップで録画可能です。
+					</p>
+					<p class="a">
+						1.保存したい動画ページを開きます。<br>
+						2.画面をスワイプして、コントロールセンターから「画面収録」をタップ。<br>
+						3.「画面収録」ボタンがカウントダウンし、録画が開始されます。<br>
+						4.動画をすべて再生し終えたら、コントロールセンターを開き、停止アイコンを押してください。もしくは、画面上部の赤いステータスバーをタップすれば録画終了です。
+					</p>
+					<p class="a">
+						画面収録で録画した動画は「カメラロール」に保存されます。
+					</p>
+					<p class="a">
+						【Androidでの録画方法】<br>
+						Androidでも同じく、Android 11以降に搭載されている「スクリーンレコード」機能を使用するため、OSのバージョンを確認しておきましょう。確認が済んだら、「通知バー」を引き下げ、「クイック設定」の編集画面を表示します。その中から「スクリーンレコード」のアイコンを長押ししてドラッグして、「クイック設定」へと移動。これで準備は完了です。あとは以下のステップで録画できます。
+					</p>
+					<p class="a">
+						1.クイック設定から「スクリーンレコード」をタップ。<br>
+						2.録画設定が表示されるので「録音」を「デバイスの音声」に設定してください。<br>
+						3.保存したい動画ページを開き、再生します。<br>
+						4.スクリーンレコードの「開始」をタップ。<br>
+						5.カウントダウンのあと、録画が開始されます。<br>
+						6.再生し終えたら、通知バーの「タップして中止」で録画終了です。
+					</p>
+					<p class="a">
+						録画した動画は「Download」フォルダに保存されます。
+					</p>
+				</div>
+				<!--Image-->
+				<div class="container sp_container mt_20 mb_20">
+					<div class="article_promo width_full">
+						<div class="article_promo_image pc_width_half">
+							<img height="300" width="480" alt="128_sub2" src="/-/media/Project/commufa/commufa/images/article/0128/128_sub2.png?rev=715d6f9593264e8999c3e8bf0b6d6abd&amp;hash=43E5243C241D56DEC891C5B57151033A">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Article Title-->
+		<section class="container sp_container article_title">
+			<div class="title_normal_wrapper left wrapper_under_line">
+				<h2 class="title_normal blue cjk commufa_title_index left_line_before ">動画視聴を楽しみたい方にYouTube以外でおすすめの動画配信サービス</h2>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						YouTubeに限らず、現在は数多くの動画配信サービスが存在しているため、利用している方も多いのではないでしょうか。それぞれ得意なコンテンツは異なり、映画やドラマ、スポーツと特色があるため、より自分の趣味嗜好にあった動画配信サービスを見つけるのも楽しいものです。以下では、オリジナルの映画や番組が話題の「Netflix」（ネットフリックス）と、世界中のスポーツをいつでも楽しめる「DAZN」（ダゾーン）をご紹介します。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">Netflix</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						誰でも一度は耳にしたことがある「Netflix」は、YouTube Premiumと同じ月額制の動画配信サービスです。月額790円（税込）から、家族など複数のデバイスで同時視聴できる1,980円（税込）のプランまで用意されています。配信コンテンツは幅広く、映画やアニメ、ドラマやドキュメンタリーはもちろん、Netflixオリジナルの映画やドラマなどの独占配信の作品も豊富です。最新作品も随時追加されており、毎週新タイトルが楽しめるところも魅力のひとつ。日本の作品のみならず、海外の映画やNetflixオリジナル作品が配信されていることも多く、子どもから大人まで幅広い年齢層が楽しめることが特長です。
+					</p>
+					<p class="a">
+						また、モバイル版のアプリでは、端末へのダウンロードにも対応しているため、外出先で通信量を気にすることなく、いつでも好きな作品が楽しめます。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">DAZN</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						DAZNは野球やサッカーをはじめ、格闘技やエクストリームスポーツなど130以上のコンテンツ、年間10,000試合以上のスポーツを一挙に楽しめる月額制のサービスです。月額3,700円（税込）と動画配信サービスの中では高めの価格設定ですが、民放のテレビなどでは放送されない試合も見られるため、スポーツ好きにはたまらないコンテンツといえるでしょう。国内のみならず、世界中のさまざまなチーム・リーグを見ることができ、ライブ中継も盛りだくさん。試合の見逃し配信や特集・解説番組も楽しめるため、試合以外にもスポーツをより楽しめるコンテンツが数多く用意されています。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Title-->
+		<section class="container sp_container article_title">
+			<div class="title_normal_wrapper left wrapper_under_line">
+				<h2 class="title_normal blue cjk commufa_title_index left_line_before ">コミュファ光の「コミュファ光Netflixパック」＋「DAZNオプション」なら動画をもっと楽しめる</h2>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						どのような動画をダウンロードして楽しむにも、まずは安定した通信環境が欠かせません。せっかくお気に入りの動画をダウンロードするなら、なるべく高画質で見たいもの。ですが、高画質な動画ほど通信量も多く、ダウンロードに時間がかかることもしばしば。そんな悩みを解決してくれるのが「コミュファ光」の光インターネットサービスです。中部テレコミュニケーション（ctc）が提供するコミュファ光の光回線なら、最大10Gbps（ギガビーピーエス：Giga bit per second）という高速で安定した通信が可能。ダウンロード環境を整えるのにうってつけのインターネットサービスです。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">コミュファ光の10ギガメニューは最大通信速度10Gbpsの超高速回線</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						高画質で動画をダウンロードして、たくさん楽しみたいお客さまには、安定した通信環境が構築できるメニューをおすすめしています。
+					</p>
+					<p class="a">
+						コミュファ光のインターネットサービスは通信速度に定評があり、特に10ギガメニューは、前述の通り、最大10Gbpsという高速な通信が可能です。同プランは通信速度を競う「RBB SPEED AWARD 2023」のWi-Fi速度の部（スマートフォンによるWi-Fi接続）「東海」で最優秀を受賞。動画視聴やダウンロードを存分に楽しみたいお客さまは、ストレスなく快適にご利用いただける10ギガメニューがおすすめです。
+					</p>
+					<p>
+						※本サービスはベストエフォート型サービスです。記載の速度は技術規格上の最大値であり、実際の使用における一定の通信速度を保証するものではありません。また、お客さまのご利用機器、設定状況、LAN環境などにより、通信速度は異なります。<br>
+						※コミュファ光（ホーム10G）は、RBB SPEED AWARD2023において、Wi-Fi速度の部（スマートフォンによるWi-Fi接続）回線事業者（契約プラン）部門「東海」で最優秀を受賞しました。<br>
+						※愛知県、岐阜県、三重県、静岡県での個人宅向けFTTHサービスの上り/下り速度で速度一位タイであり、10ギガホームメニューが対象です。（2023年3月付け株式会社シード・プランニングの調査に基づく）<br>
+						※10ギガメニュー提供エリアについては<a href="/services" target="_blank">こちら</a>をご確認ください。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Subtitle-->
+		<section class="container sp_container article_subtitle">
+			<div class="title_small_wrapper">
+				<h3 class="title_small blue cjk">「コミュファ光 Netflixパック」「DAZNオプション」なら動画サービスをおトクな料金で利用できる</h3>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						Netflixで映画やドラマを見たい、スポーツを年中楽しみたい…そんなお客さまもコミュファにお任せください。コミュファでは、「Netflix」「DAZN」それぞれ光ネットとセットでご利用いただけるメニューをご用意しています。
+					</p>
+					<p class="a">
+						「<a href="/satellite/netflix/startcp_new" target="_blank">コミュファ光 Netflixパック</a>」なら、10ギガメニュー＋Netflixスタンダードプランでご契約の場合「Netflix」単独でのご利用よりも月額110円おトクに。また、「<a href="/services/option/dazn" target="_blank">DAZNオプション</a>」なら、光ネットとセットの年間プランのご契約で、DAZNが月額2,140円相当でお楽しみいただけます。それぞれ個別でご契約いただくよりも、コミュファ光とあわせてご契約いただくことでおトクに。さらにコミュファ光の高速通信で快適にコンテンツをお楽しみいただけます。
+					</p>
+					<p>
+						※10ギガメニュー+Netflixスタンダードプラン、10ギガメニュー以外+Netflixプレミアムプランの場合です。10ギガメニュー+Netflixプレミアムプランの場合は165円/月割引、10ギガメニュー以外+Netflixスタンダードプランの場合は55円/月割引となります。<br>
+						※光ネットとセットでネット料金から月々110円を割引して年間料金を月額換算した場合の月額相当料金となります。※年間プランの場合、ご契約の翌月に一括で27,000円をお支払いいただきます。合わせて、コミュファ光とセット割引として、ネット料金から月々110円を割引します。<br>
+						※「Wi-Fi」は Wi-Fi Alliance の登録商標です。<br>
+						※Wi-Fi 通信を行うには、Wi-Fi 対応の機器が必要です。
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--Article Title-->
+		<section class="container sp_container article_title">
+			<div class="title_normal_wrapper left wrapper_under_line">
+				<h2 class="title_normal blue cjk commufa_title_index left_line_before ">まとめ</h2>
+			</div>
+		</section>
+		<!--Article Paragraph-->
+		<div class="container sp_container">
+			<div class="row">
+				<div class="article-text-box">
+					<p class="a">
+						今回は動画のダウンロードについて紹介してきました。まず、動画のダウンロードそのものは「私的利用に限り」違法ではありません。著作権に抵触していない動画であれば、好きに端末へダウンロードして楽しむことができます。ダウンロードしたい動画が著作権に抵触していないか不安な方は、「YouTube Premium」や「Netflix」などの月額サービスに加入し、公式アプリの機能でダウンロードする方法が安心でおすすめです。
+					</p>
+					<p class="a">
+						そして、高画質で多くの動画をダウンロードするために、ぜひ「コミュファ光」の高速な光回線をご検討ください。「Netflix」「DAZN」をご利用の際は、より安価にサービスをご利用いただけるだけでなく、高速通信でストレスなく楽しい動画ライフをお送りいただけます。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>        </div>
+    </div>
+ 
+ 
+    <div class="component rich-text col-12">
+        <div class="component-content">
+<div class="component rich-text col-12">
+	<div class="component-content">
+		<div class="container sp_container">
+			<div class="row">
+ 
+				<div class="speedTest_bnr pc_only">
+					<a href="https://mypage.commufa.jp/join/s/speedTest" target="_blank">
+						<div class="speedTest_bnr_inner">
+							<div class="inner_left">
+								<img src="/-/media/Project/commufa/commufa/images/services/information/speed_measurement.png?rev=a842c06ddba54521a41b27228e48c556&amp;hash=DE92566464C420BA7393270B6B14864D" alt="今のインターネット回線は快適ですか？ 速度測定してみよう">
+							</div>
+							<div class="inner_right">
+								<p class="ttl">ご自宅のインターネット環境をカンタン測定！</p>
+								<p class="txt">
+									中部5県でインターネットサービスを展開するコミュファが作った速度測定ページです。<br>
+									ダウンロード速度から、Ping・Jitterという専門的な数値までご確認いただけます。<br>
+									回線速度向上のポイントも紹介してますので、ぜひ一度お試しください。
+								</p>
+							</div>
+							<p class="rb_arrow">速度測定はこちら ＞</p>
+						</div>
+					</a>
+				</div>
+ 
+				<div class="speedTest_bnr sp_only">
+					<a href="https://mypage.commufa.jp/join/s/speedTest" target="_blank">
+						<div class="speedTest_bnr_inner">
+							<p class="ttl">
+								ご自宅のインターネット環境を<br>
+								カンタン測定！
+							</p>
+							<div class="inner_img">
+								<img src="/-/media/Project/commufa/commufa/images/services/information/speed_measurement.png?rev=a842c06ddba54521a41b27228e48c556&amp;hash=DE92566464C420BA7393270B6B14864D" alt="今のインターネット回線は快適ですか？ 速度測定してみよう">
+							</div>
+							<p class="txt">
+								中部5県でインターネットサービスを展開するコミュファが作った速度測定ページです。<br>
+								ダウンロード速度から、Ping・Jitterという専門的な数値までご確認いただけます。<br>
+								回線速度向上のポイントも紹介してますので、ぜひ一度お試しください。
+							</p>
+							<p class="rb_arrow">速度測定はこちら ＞</p>
+						</div>
+					</a>
+				</div>
+ 
+			</div>
+		</div>
+	</div>
+</div>        </div>
+    </div>
+</div>
+        </div>
+    </div>
+ 
+ 
+ 
+ 
+<div class="component container col-12 ctc_bottom_page_container">
+    <div class="component-content">
+<div class="row">
+ 
+    <div class="component rich-text col-12">
+        <div class="component-content">
+<div class="ctc_contact_area">
+	<div class="ctc_contact_area_inner">
+		<div class="contact_item">
+			<img class="icon" src="-/media/Project/commufa/commufa/images/2022/character/fig_character_panda_03.png" alt="">
+			<p class="_title">WEBでの<br>
+				お申し込みはこちら</p>
+			<div class="btn_accent bg_left btn_orange icn_home_01">
+				<a href="https://area.commufa.jp/commufa/map/index.asp?option=portal&amp;jutaku=ko" class="icon_house">戸建住宅でお申し込み</a>
+			</div>
+			<div class="btn_accent bg_left btn_deep_orange icn_home_02">
+				<a href="/services/areasearch_m" class="icon_housing_complex">集合住宅でお申し込み</a>
+			</div>
+			<span>※物件が見つからない場合はお電話でお問い合わせください。</span>
+		</div>
+		<div class="contact_item">
+			<img class="icon" src="-/media/Project/commufa/commufa/images/2022/character/fig_character_panda_04.png" alt="">
+			<p class="_title">お電話でのお申し込み<br>
+				ご相談はこちら</p>
+			<div class="btn_bk bg_left icn_reservation">
+				<a href="https://service.commufa.jp/RequestCallback" class="icon_reserv">お申し込み相談予約</a>
+			</div>
+			<div class="btn_bk bg_left icn_phone">
+				<a href="tel:0120-816-538" class="icon_contact">今すぐお電話 0120-816-538</a>
+			</div>
+			<p style="text-align: right;font-size: 12px;color: var(--color-gray-dark);">
+				営業時間 9:00~18:00（年中無休）
+			</p>
+			<div class="_outline em1_text_indent-1">
+				<p>※他社契約解除料の金額によって最適なキャンペーンが異なります。他社乗り換えの場合、新規お申し込みいただく前に他社契約解除料の金額をご確認いただくとオペレーターよりお客さまに最適なキャンペーンをご案内することができます。
+				</p>
+				<p>※新規お申し込み後にキャンペーンを変更することはできません。</p>
+			</div>
+		</div>
+	</div>
+	<div class="ctc_contact_area_inner">
+		<div class="ctc_contact_area_inner_bottom">
+			<div class="bottom_left">
+				<img src="-/media/Project/commufa/commufa/images/2022/character/fig_character_panda_09.png">
+			</div>
+			<div class="bottom_right">
+				<p class="bottom_left_ttl">
+					チャットでの<br class="sp_only">
+					お申し込みはこちら
+				</p>
+				<p class="bottom_right_text">
+					画面右下のチャットサポートからオペレーターを介してコミュファ光新規お申し込みのご案内ができます。「コミュファ光ネットのお申し込みを検討しているお客さま」を押下後、「チャットオペレーターへつなぐ」を選択するとオペレーターへお繋ぎできますのでぜひご利用ください。<br>
+					※チャットサポートが表示されない方は<a href="/application/chat/mobiagent_02" target="_blank">こちら</a>
+				</p>
+			</div>
+			<div class="bottom_center">
+				<p class="bottom_center_text">
+					チャット新規受付窓口<br class="sp_only">
+					<span>営業時間 9:00~20:00（年中無休）</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>        </div>
+    </div>
+</div>    </div>
+</div>
+ 
+    <div class="component rich-text col-12">
+        <div class="component-content">
+<div class="text_normal_wrapper">
+    <div class="text_normal">
+        <p>※表記の金額は、一部を除きすべて税込価格です。消費税計算の都合上、実際の請求額とは異なる場合があります。</p>
+        <p style="color:red;">記事の内容は記事公開日時点の情報です。サービスやキャンペーン内容が変更になっている場合がございますので最新の情報をご確認ください。</p>
+    </div>
+</div>
+<div id="fixed-cta">
+   <ul>
+      <li>
+         <a href="/services/information" id="FollowCTAtoCampaign">
+            <p class="pc_only"><img src="/-/media/Project/commufa/commufa/images/article/fixed_cta_camp_pc.png?rev=5d9d425ba3e9459e8a9fba1fa53a3d9b&amp;hash=81285AA95B8CC9B056F650D3CE9B87E8"></p>
+            <p class="sp_only"><img src="/-/media/Project/commufa/commufa/images/article/fixed_cta_camp_sp.png?rev=c5ae0f1bd1574a7eab1749fc46cb048e&amp;hash=E6C2C5385D2CBE60234E771609296CB9"></p>
+         </a>
+      </li>
+      <li>
+         <a href="/application/chat/mobiagent_02" onclick="window.open(this.href, '', 'width=475,height=580,left=0,top=0,resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=yes'); return false;" id="FollowCTAtoChatSupport">
+            <p class="pc_only"><img src="/-/media/Project/commufa/commufa/images/article/fixed_cta_chat_pc.png?rev=f1e07e3f6b674c68b3006c5bd2eb6e56&amp;hash=90A0566F3CC2A4F28EED920D28D4CEAC"></p>
+            <p class="sp_only"><img src="/-/media/Project/commufa/commufa/images/article/fixed_cta_chat_sp.png?rev=49f06a4fccfe46c2af9f97615e70a59f&amp;hash=C9FAEEC782A33265FE18A582FA4661FC"></p>
+         </a>
+      </li>
+   </ul>
+</div>        </div>
+    </div>
+    <div class="component ctc-featured-article col-12">
+        <div class="component-content">
+ 
+<div class="article_share">
+    <div class="main_content">
+       
+             
+            <img src="/-/media/Project/commufa/commufa/images/article/0128/128_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=7d67de25b9164c2cb8c453ba69fd4ea1&amp;hash=3064AAAD85E6DD88C9162FFA89010EC8" class="article_thumbnail" alt="128_main" width="960" height="300">
+             <div class="article_details_area">
+                <p class="main_text">
+                    この記事を<span class="pc_only">友達に</span>シェアする
+                </p>
+                <p class="article_title">
+                    動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介
+                </p>
+                <p class="date_text">2023年6月1日</p>
+            </div>
+            
+      
+    </div>
+<div class="share_sns_tag">
+ 
+ 
+ 
+ 
+ 
+    
+    
+    
+      
+  <a href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=https://www.commufa.jp/article/0128&amp;quote=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_facebook.png?rev=db0ca30a46624473b794e56cb7ad5058"></a>
+    
+ 
+    
+    
+    
+      
+  <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=https://www.commufa.jp/article/0128&amp;text=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_twitter.png?rev=966cefb42ec74e2dbbdbae2daef634dc"></a>
+    
+ 
+    
+    
+    
+      
+  <a href="#" onclick="window.open('https://social-plugins.line.me/lineit/share?url=https://www.commufa.jp/article/0128&amp;text=動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介','ShareOnSocialMedia', 'width=600,height=400')"><img src="/-/media/Themes/commufa/master/master/images/icons/icn_share_line.png?rev=2de0bd12c2504da1a114edb1b41c2f54"></a>
+    
+ 
+</div>
+</div>
+ 
+ 
+         </div>
+    </div>
+ 
+    <div class="component ctc-related-article col-12">
+        <div class="component-content">
+ 
+<div class="recommend_tag">
+    <div class="tag_main_content">
+      
+            <div class="tag_title">
+                
+                <p class="title_text">注目のおすすめタグ</p>
+            </div>
+            <div class="hashtag_group">
+                
+                    <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=Wi-Fi">Wi-Fi</a>
+                
+                    <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=プロバイダー">プロバイダー</a>
+                
+                    <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=ルーター">ルーター</a>
+                
+                    <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=光回線">光回線</a>
+                
+                    <a class="hashtag_text" href="/article#ctc-article_ctc%20tags=インターネット">インターネット</a>
+                
+            </div>
+        
+    </div>
+</div>
+<div class="title_normal_wrapper">
+<h2 class="title_normal gray underline cjk">関連記事</h2>
+</div>
+<div class="img_article">   
+<ul class="article_content">
+    
+    
+        
+        
+           
+         
+        <li data-tags="" class="article_item">
+            <a class="article_link" href="/article/0046">
+                <img src="/-/media/Project/commufa/commufa/images/article/0046/46_main.png?rev=ce0d708257bc450ea17469f8c84ec7d7">
+                <div class="article_description">
+                    <p class="article_title">
+                        現在利用している回線は速い？遅い？回線種類ごとの目安に加え、プロバイダごとの目安もチェック
+                    </p>
+                    <p class="article_date">2022年7月14日</p>
+                </div>
+            </a>
+        </li>
+        
+         
+    
+        
+        
+           
+         
+        <li data-tags="" class="article_item">
+            <a class="article_link" href="/article/0113">
+                <img src="/-/media/Project/commufa/commufa/images/article/0113/113_main.png?rev=2a8bc463ba094553aec14a9330d6b904">
+                <div class="article_description">
+                    <p class="article_title">
+                        インターネット環境があれば動画配信サービスを利用できる！選ぶポイントや注意点とは
+                    </p>
+                    <p class="article_date">2023年10月10日</p>
+                </div>
+            </a>
+        </li>
+        
+         
+      
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   <li data-tags="プロバイダー;インターネット;" class="article_item">
+            <a class="article_link" href="/article/0015">
+              <img src="/-/media/Project/commufa/commufa/images/article/0015/main.png?rev=012aa438fe884ec98c934052cc2a2bb2" alt="サムネイル">
+                <div class="article_description">
+                <p class="article_title">
+                光回線を乗りかえるメリットやデメリットとは？手順やおすすめのタイミングを解説
+                </p>
+                <p class="article_date">2024年3月26日</p>
+                </div>
+            </a>
+    </li>
+    
+ 
+</ul>
+</div>
+        </div>
+    </div>
+ 
+    <div class="component ranking col-12">
+        <div class="component-content">
+<div class="title_normal_wrapper mt_80">
+  <h2 class="title_normal gray underline cjk">アクセスランキング</h2>
+</div>
+ 
+<div class="img_num_article">
+  <ul class="article_content mb_80">
+    
+    
+      
+        <li class="article_item">
+          <a class="article_link" href="/article/0128">
+            <div class="article_rank cjk">1</div>
+         <img src="/-/media/Project/commufa/commufa/images/article/0128/128_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=7d67de25b9164c2cb8c453ba69fd4ea1&amp;hash=3064AAAD85E6DD88C9162FFA89010EC8" class="img-fluid" alt="128_main" width="960" height="300">
+            <div class="article_description">
+              <p class="article_title">
+                動画のダウンロード方法を解説！YouTube動画を保存する際の注意点も紹介
+              </p>
+                <p class="article_date">
+                  2023年6月1日
+                </p>
+            </div>
+          </a>
+          </li>
+          
+      
+    
+      
+        <li class="article_item">
+          <a class="article_link" href="/article/0120">
+            <div class="article_rank cjk">2</div>
+         <img src="/-/media/Project/commufa/commufa/images/article/0120/120_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=0452e16b0ace4ed5bdf8b926dc791562&amp;hash=249A3D9C37758681EB0AC2D7E54F24F4" class="img-fluid" alt="120_main" width="960" height="300">
+            <div class="article_description">
+              <p class="article_title">
+                ギガを使い切ったらどうなるか？通信速度制限を受けないための対処法を解説！
+              </p>
+                <p class="article_date">
+                  2023年3月31日
+                </p>
+            </div>
+          </a>
+          </li>
+          
+      
+    
+      
+        <li class="article_item">
+          <a class="article_link" href="/article/0076">
+            <div class="article_rank cjk">3</div>
+         <img src="/-/media/Project/commufa/commufa/images/article/0076/76_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=37730a779ea04ba68fee4d781ea11ce1&amp;hash=716A8218D8EC7C061B16D908FD32A8C7" class="img-fluid" alt="76_main" width="960" height="300">
+            <div class="article_description">
+              <p class="article_title">
+                インターネットへの繋がりが悪い！考えられる原因と具体的な対処方法とは？
+              </p>
+                <p class="article_date">
+                  2023年3月31日
+                </p>
+            </div>
+          </a>
+          </li>
+          
+      
+    
+      
+        <li class="article_item">
+          <a class="article_link" href="/article/0175">
+            <div class="article_rank cjk">4</div>
+         <img src="/-/media/Project/commufa/commufa/images/article/0175/175_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=448804a50d874eb8a78e396e5317ed67&amp;hash=283F8DE159CD9A2C1D63529967DB5CFC" class="img-fluid" alt="175_main" width="960" height="300">
+            <div class="article_description">
+              <p class="article_title">
+                1ギガでどれくらいインターネットが利用できる？通信量・通信速度別に解説！
+              </p>
+                <p class="article_date">
+                  2024年2月6日
+                </p>
+            </div>
+          </a>
+          </li>
+          
+      
+    
+      
+        <li class="article_item">
+          <a class="article_link" href="/article/0157">
+            <div class="article_rank cjk">5</div>
+         <img src="/-/media/Project/commufa/commufa/images/article/0157/157_main.png?h=300&amp;iar=0&amp;w=960&amp;rev=a09d1fdaf8a648e29601fcf8dbc074ad&amp;hash=80BB29D08183B383A5D5F5A1CBB13EA0" class="img-fluid" alt="157_main" width="960" height="300">
+            <div class="article_description">
+              <p class="article_title">
+                Wi-Fiが2階に届かないときの対処法は？遅延の原因もあわせて解説！
+              </p>
+                <p class="article_date">
+                  2023年6月2日
+                </p>
+            </div>
+          </a>
+          </li>
+          
+      
+    
+  </ul>
+</div>        </div>
+    </div>
+ 
+        </div>
+    </main>
+    <!-- /#content -->
+    <!-- #footer -->
+    <footer>
+        <div id="footer" class="container">
+            
+    <div class="component ctc-button col-12">
+        <div class="component-content">
+ 
+<p class="component ctc-button col-12 page-top">
+ <a href="#site_header" style="position: fixed; bottom: 40px; display: inline;">
+  <img src="/-/media/Themes/commufa/master/master/images/common/icn_pagetop.png?rev=7f1ab3010f5f412b931e6d5c4054afd7" width="16"> 
+    ページのTOPへ
+ </a>
+</p>
+ 
+ 
+ 
+        </div>
+    </div>
+ 
+ 
+ 
+ 
+<div class="component container col-12 ctc_global_footer">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 ctc_global_footer_utility">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 ctc_site_map_pc">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_first_level">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/others/aboutcommufa" data-variantitemid="{D3537FFE-C787-4864-BE7D-6432B5E23232}" data-variantfieldname="Link">コミュファブランドについて</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/inquiry" data-variantitemid="{EB5223B7-BDB6-4E3D-9EB0-90B40C3F8BA9}" data-variantfieldname="Link">お問い合わせ</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/about" data-variantitemid="{C06C5E79-1B56-447A-BFFB-AC3568B791D7}" data-variantfieldname="Link">コミュファ光の技術</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/article" data-variantitemid="{EA1D3ABA-F9AA-4EE0-A1AA-9BE7597359E6}" data-variantfieldname="Link">光回線お役立ち情報</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_first_level">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/step" data-variantitemid="{371BB339-57E0-48F8-B178-31C47E313011}" data-variantfieldname="Link">ご利用中のお客さま</a></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_second_level">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_second_level_item">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/howto" data-variantitemid="{5D7E50DD-4B81-43BB-93D0-4244075AD478}" data-variantfieldname="Link">各種接続・設定方法</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/affairs" data-variantitemid="{E3872280-998D-48DC-BFFF-CC203CC08E9B}" data-variantfieldname="Link">ご契約内容確認・お手続き</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="https://faq.commufa.jp/?site_domain=default" data-variantitemid="{DFA06822-37AA-41E0-ACE7-263E062FF0AC}" data-variantfieldname="Link">よくあるご質問</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/benefit" data-variantitemid="{E7251592-33DD-4946-967B-CD2914FA4D3B}" data-variantfieldname="Link">会員さま特典・キャンペーン</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/affairs/construction" data-variantitemid="{312633D6-439E-499C-B045-B57E9C354E4D}" data-variantfieldname="Link">工事進捗の確認方法</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_second_level_item">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/oldmenu" data-variantitemid="{130CAC38-A2DE-497B-B11A-7D5A6B67CA53}" data-variantfieldname="Link">新規申込受付終了の料金プラン・割引など</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_first_level">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/services/information" data-variantitemid="{D8BE372D-0760-4613-8B5E-7005E574AAD5}" data-variantfieldname="Link">お申し込みを検討中のお客さま</a></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_second_level">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_second_level_item">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services" data-variantitemid="{B81C0444-9009-45CF-BFD2-6D00B112444F}" data-variantfieldname="Link">料金・サービス内容（戸建住宅）</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/mansion" data-variantitemid="{4ED8D2BC-2504-4ED8-B2F9-D3CED191DB76}" data-variantfieldname="Link">料金・サービス内容（集合住宅）</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/commufanet" data-variantitemid="{542E5B99-6651-498B-BB34-613B8995A3E3}" title="auひかり（コミュファnet）" data-variantfieldname="Link">auひかり（コミュファnet）</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/phone" data-variantitemid="{640BDF9C-2B56-48FF-89BB-CA57F6C1FE32}" data-variantfieldname="Link">光電話</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/tv" data-variantitemid="{71E261B6-2885-4F7A-A2F6-57A4192A9E7B}" data-variantfieldname="Link">光テレビ</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/option" data-variantitemid="{DB5CF271-5A49-4262-B626-BEF2649DC2DA}" data-variantfieldname="Link">オプションサービス一覧</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/discount" data-variantitemid="{0C3E62E8-B124-45B5-B6E0-C02937CFD2D0}" data-variantfieldname="Link">割引サービス・制度</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_second_level_item">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/common" data-variantitemid="{06848F96-B3D9-4427-BFCE-C67D0684367B}" data-variantfieldname="Link">共通のご案内</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="https://form.commufa.jp/simulator/" data-variantitemid="{42EC89AD-49B0-4291-ACF3-AE795E590A3D}" data-variantfieldname="Link">料金シミュレーション</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/cp" data-variantitemid="{490A6EBE-7C50-4822-9249-F55E66E5CA3B}" data-variantfieldname="Link">新規お申し込みキャンペーン</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/mansion/owner01" data-variantitemid="{2FE60CEF-A0CC-4C22-AD98-5E02E532F6B6}" data-variantfieldname="Link">オールコミュファ・マンション</a></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/partner" data-variantitemid="{8E23443E-519B-41D9-BE90-EA55AE141ED9}" data-variantfieldname="Link">コミュファ光認定代理店</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 ctc_sns_box">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12">
+    <div class="component-content">
+<div class="row">
+<div class="component image file-type-icon-media-link col-12">
+    <div class="component-content">
+    </div>
+</div>
+</div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 ctc_sns_icon">
+    <div class="component-content">
+<div class="row">
+<div class="component image file-type-icon-media-link col-12">
+    <div class="component-content">
+<a title="Image 1" href="https://www.facebook.com/commufa.hikari"><img src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_sns_facebook_01.png?h=100&amp;iar=0&amp;w=100&amp;rev=7107826a9e3240faa3dfbc36cd2f511d&amp;hash=CED3475F7561C79C9ADA81D1761A71E7" alt="facebook" width="100" height="100" data-variantitemid="{AA49CAD6-1971-4888-A52D-B9BBCD2C22FC}" data-variantfieldname="Image"></a>    </div>
+</div>
+ 
+<div class="component image file-type-icon-media-link col-12">
+    <div class="component-content">
+<a title="Image 2" href="https://twitter.com/commufa_hikari"><img src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_sns_twitter_01.png?h=100&amp;iar=0&amp;w=100&amp;rev=e066f3f0ace74242984c38ff0280ea5e&amp;hash=0C154EE9B726DEE1C50911B8B9C656F5" alt="twitter" width="100" height="100" data-variantitemid="{19E9FE5A-5246-4857-AFCD-6D24AA916649}" data-variantfieldname="Image"></a>    </div>
+</div>
+ 
+<div class="component image file-type-icon-media-link col-12">
+    <div class="component-content">
+<a title="Image 4" href="https://www.youtube.com/user/commufahikari"><img src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_sns_youtube_01.png?h=100&amp;iar=0&amp;w=100&amp;rev=fb7cb25d9dfa4ca387490371ff8f5ab7&amp;hash=10514F26E5068B79F6C1AEA20E3ECE96" alt="YouTube" width="100" height="100" data-variantitemid="{B02E61F2-2198-4B26-A435-F9F8CADD1248}" data-variantfieldname="Image"></a>    </div>
+</div>
+</div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 ctc_sns_btn_list">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_wt bg_left"><span class="field-link"><a href="/sns" data-variantitemid="{575C0084-5D89-4570-A304-EA3E4DA9DCBB}" data-variantfieldname="Link">アカウント一覧</a></span></div>    </div>
+</div>
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_wt bg_left"><span class="field-link"><a href="/application/sp_app" data-variantitemid="{67F2713A-3AE4-476C-A19D-4191BAB879B6}" data-variantfieldname="Link">公式アプリ</a></span></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 ctc_site_map_sp">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_container">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_link site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/others/aboutcommufa" data-variantitemid="{D3537FFE-C787-4864-BE7D-6432B5E23232}" data-variantfieldname="Link">コミュファブランドについて</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_accordion site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 js_accordion_title site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/step" data-variantitemid="{371BB339-57E0-48F8-B178-31C47E313011}" data-variantfieldname="Link">ご利用中のお客さま</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_content site_map_link">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/howto" data-variantitemid="{5D7E50DD-4B81-43BB-93D0-4244075AD478}" data-variantfieldname="Link">各種接続・設定方法</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/affairs" data-variantitemid="{E3872280-998D-48DC-BFFF-CC203CC08E9B}" data-variantfieldname="Link">ご契約内容確認・お手続き</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="https://faq.commufa.jp/?site_domain=default" data-variantitemid="{DFA06822-37AA-41E0-ACE7-263E062FF0AC}" data-variantfieldname="Link">よくあるご質問</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/benefit" data-variantitemid="{E7251592-33DD-4946-967B-CD2914FA4D3B}" data-variantfieldname="Link">会員さま特典・キャンペーン</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/affairs/construction" data-variantitemid="{312633D6-439E-499C-B045-B57E9C354E4D}" data-variantfieldname="Link">工事進捗の確認方法</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/step/oldmenu" data-variantitemid="{130CAC38-A2DE-497B-B11A-7D5A6B67CA53}" data-variantfieldname="Link">新規申込受付終了の料金プラン・割引など</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_accordion site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 js_accordion_title site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/services/information" data-variantitemid="{D8BE372D-0760-4613-8B5E-7005E574AAD5}" data-variantfieldname="Link">お申し込みを検討中のお客さま</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_content site_map_link">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services" data-variantitemid="{B81C0444-9009-45CF-BFD2-6D00B112444F}" data-variantfieldname="Link">料金・サービス内容（戸建住宅）</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/mansion" data-variantitemid="{4ED8D2BC-2504-4ED8-B2F9-D3CED191DB76}" data-variantfieldname="Link">料金・サービス内容（集合住宅）</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/commufanet" data-variantitemid="{542E5B99-6651-498B-BB34-613B8995A3E3}" title="auひかり（コミュファnet）" data-variantfieldname="Link">auひかり（コミュファnet）</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/phone" data-variantitemid="{640BDF9C-2B56-48FF-89BB-CA57F6C1FE32}" data-variantfieldname="Link">光電話</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/tv" data-variantitemid="{71E261B6-2885-4F7A-A2F6-57A4192A9E7B}" data-variantfieldname="Link">光テレビ</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/option" data-variantitemid="{DB5CF271-5A49-4262-B626-BEF2649DC2DA}" data-variantfieldname="Link">オプションサービス一覧</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/discount" data-variantitemid="{0C3E62E8-B124-45B5-B6E0-C02937CFD2D0}" data-variantfieldname="Link">割引サービス・制度</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/services/common" data-variantitemid="{06848F96-B3D9-4427-BFCE-C67D0684367B}" data-variantfieldname="Link">共通のご案内</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="https://form.commufa.jp/simulator/" data-variantitemid="{42EC89AD-49B0-4291-ACF3-AE795E590A3D}" data-variantfieldname="Link">料金シミュレーション</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/cp" data-variantitemid="{490A6EBE-7C50-4822-9249-F55E66E5CA3B}" data-variantfieldname="Link">新規お申し込みキャンペーン</a></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_gy field-link"><a href="/partner" data-variantitemid="{8E23443E-519B-41D9-BE90-EA55AE141ED9}" data-variantfieldname="Link">コミュファ光認定代理店</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_link site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/inquiry" data-variantitemid="{EB5223B7-BDB6-4E3D-9EB0-90B40C3F8BA9}" data-variantfieldname="Link">お問い合わせ</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_link site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/about" data-variantitemid="{C06C5E79-1B56-447A-BFFB-AC3568B791D7}" data-variantfieldname="Link">コミュファ光の技術</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>
+ 
+ 
+<div class="component container col-12 site_map_link site_map_item">
+    <div class="component-content">
+<div class="row">
+ 
+ 
+<div class="component container col-12 site_map_title">
+    <div class="component-content">
+<div class="row">
+ 
+<div class="component link col-12">
+    <div class="component-content">
+ 
+<div class="btn_text_wt field-link"><a href="/article" data-variantitemid="{EA1D3ABA-F9AA-4EE0-A1AA-9BE7597359E6}" data-variantfieldname="Link">光回線お役立ち情報</a></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div></div>    </div>
+</div>    <div class="component ctc-footer">
+        <div class="component-content">
+<div class="footer_bottom">
+    <div class="menu_area">
+        <ul class="menu_list">
+            <div class="list_upper">
+              
+              
+                
+                  <li class="list_item">
+                    
+                        <a class="list_link" href="/sitetree">サイトマップ</a>
+                    
+                  </li>
+                
+              
+                
+                  <li class="list_item">
+                    
+                        <a target="_blank" class="list_link" href="https://www.ctc.co.jp/">企業情報</a>
+                    
+                  </li>
+                
+              
+                
+                  <li class="list_item">
+                    
+                        <a class="list_link" href="/policy">このサイトについて</a>
+                    
+                  </li>
+                
+              
+                
+              
+                
+              
+                
+              
+            </div>
+            
+                
+                <div class="list_bottom">
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                      <li class="list_item">
+                      
+                        <a target="_blank" class="list_link" href="https://www.ctc.co.jp/privacy/">プライバシーポリシー</a>
+                      
+                      </li>
+                    
+                  
+                  
+                      <li class="list_item">
+                      
+                        <a class="list_link" href="/policy/agreement">契約約款</a>
+                      
+                      </li>
+                    
+                  
+                  
+                      <li class="list_item">
+                      
+                        <a class="list_link" href="/trademark">商標について</a>
+                      
+                      </li>
+                    
+                  
+                </div>
+            
+        </ul>
+    </div>
+    <div class="copy_area">
+          <p class="copyright_text">
+COPYRIGHT©CHUBU TELECOMMUNICATIONS CO.,INC. ALL RIGHTS
+RESERVED.
+</p>
+          <div class="row">    <div class="component ctc-button col-12">
+        <div class="component-content">
+ 
+<a target="_blank" href="https://privacymark.jp/">
+<div class="privacy_content">
+            <img class="privacy_icon" src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_privacy.png?rev=b9447116732a497c84d00a8524832309" alt="プライバシーマーク">
+            <p class="privacy_text">
+                お客さまの個人情報を適切に取り扱う企業として<br>
+                プライバシーマークを取得しています。
+            </p>
+        </div>
+</a>
+        </div>
+    </div>
+</div>
+          <div class="row">    <div class="component ctc-button col-12">
+        <div class="component-content">
+ 
+<a href="/services/common/ipv6" target="">
+    <img src="/-/media/Project/commufa/commufa/images/2022/common/icon/icn_ipv6.png?rev=6251eae1b863416a94cf0e692f6cb4ee">
+</a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>    </div>
+</div>
+        </div>
+    </footer>
+    <!-- /#footer -->
+</div>
+<!-- /#wrapper -->
+ 
+        
+ 
+ 
+ 
+ 
+ 
+ 
+<script src="/-/media/Base-Themes/Core-Libraries/scripts/ie-origin-fix.js?rev=-1&amp;hash=18645FDB39A1459814B067B8F863A6C9"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/xaquery.js?rev=-1&amp;hash=DAA9D62B6868929A786C935F3FAA5567"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/moment.js?rev=-1&amp;hash=C9A88FD6CB01E3F8CB452372BA47D57E"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/lo-dash.js?rev=-1&amp;hash=3073AE2A1E32277C007DD414ECE27EF7"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/modernizr.js?rev=-1&amp;hash=7CB95651E63130B4F5C9F08DE07CB6E0"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/galleria-157.js?rev=-1&amp;hash=7ED296701537B3F7FF116F380ACA254F"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/fullcalendar.js?rev=-1&amp;hash=5B678ECCA94C10F221D4CE3CB0B4D3C4"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/gcal.js?rev=-1&amp;hash=C620183C100B6544631F694FCE8DB2D0"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/jqueryuitouch-punchmin.js?rev=-1&amp;hash=69A5D1AB93E395201F6F4C6AC83F5759"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/hammer.js?rev=-1&amp;hash=3161DFF0D90D0A1BE11862A6C5697CC7"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/backbone-min.js?rev=-1&amp;hash=6FF83E1A9E7A924354C4B9B4512C1922"></script><script src="/-/media/Base-Themes/Core-Libraries/scripts/typeahead.js?rev=-1&amp;hash=B4D561E123573F22259848B15F7870B9"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/jquerymCustomScrollbar.js?rev=-1&amp;hash=6C9B66FB1C1BE23C740E590F0CE4752B"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/flash-polyfill.js?rev=-1&amp;hash=C36494BEB222025C402E5AD59650F939"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/mediaelement-and-player.js?rev=-1&amp;hash=E60591D5C4604998BEA8ACB3A81BB44C"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/dailymotion.js?rev=-1&amp;hash=E3C20CA2CAFED75B3DFB611371245866"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/facebook.js?rev=-1&amp;hash=ED77A6D062A98CD769F0F34631510690"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/soundcloud.js?rev=-1&amp;hash=2E8F012D79AAA2A8D34941D40B3A730D"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/twitch.js?rev=-1&amp;hash=3F3E705CAE97640D578EB2D82C50761E"></script>
+        <script src="/-/media/Base-Themes/Core-Libraries/scripts/vimeo.js?rev=-1&amp;hash=D4818A410CADA79FF33CDBAB691DDD33"></script>
+        <script src="/-/media/Base-Themes/XA-API/Scripts/xa.js?rev=-1&amp;hash=B9BF3C8095C5900CA81F8433BDC5AC39"></script>
+        <script src="/-/media/Base-Themes/Main-Theme/scripts/observer.js?rev=-1&amp;hash=E9192AD765FAAD156A5875F2ED655F00"></script>
+        <script src="/-/media/Base-Themes/Main-Theme/scripts/partial-design-highlight.js?rev=-1&amp;hash=D18D0C904948451A7E4DB33A0662A766"></script>
+        <script src="/-/media/Base-Themes/Google-Maps-JS-Connector/Scripts/google-maps-connector.js?rev=-1&amp;hash=179FB5A53BC6EC6C25E358DE77ECC91A"></script><script src="/-/media/Base-Themes/Maps/Scripts/component-location-service.js?rev=-1&amp;hash=AF26B13E2C226CA597DB99B7B265C2D9"></script><script src="/-/media/Base-Themes/Maps/Scripts/component-map.js?rev=-1&amp;hash=C5A27AF2C33B3070D0DFAA954F1D2836"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-location-service.js?rev=-1&amp;hash=F170BB93F3ECD7DC44F1F9E914BEB021"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search.js?rev=-1&amp;hash=B906FC358E97FD0873DC2ADF2B26FE35"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-ajax.js?rev=-1&amp;hash=FFC5946AB7B4A1E1A627E584F37FB1E4"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-base-model.js?rev=-1&amp;hash=2F88FF80A7F19238D503E5D4A7060C43"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-base-view.js?rev=-1&amp;hash=B185631DC01FF94B9D821CEC935F321D"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-box.js?rev=-1&amp;hash=73F30B970C1412F7A9CC70764911D0EB"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-data.js?rev=-1&amp;hash=1FA792446135C2C55723172595CE27EC"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-summary.js?rev=-1&amp;hash=440711534A161ED7CC2FBC7A3DCFCDA8"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-dropdown.js?rev=-1&amp;hash=20EA2DE0C3A3A2841C60D376FC53C27D"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-managed-range.js?rev=-1&amp;hash=E4830822E5D3393E7DECF3BC6F478D14"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-range-slider.js?rev=-1&amp;hash=BB62FAF461383C22F4CFC42AF94E1DAB"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-slider.js?rev=-1&amp;hash=68DA6B0687566821907AFB528AB1E24B"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-load-more.js?rev=-1&amp;hash=2DBCB020A38D41537C26340EE98F45AD"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-location-filter.js?rev=-1&amp;hash=BDDB8C7628107CBC63B03B3ECD5EEE2D"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-page-selector.js?rev=-1&amp;hash=E6C37B99661BACF8062FBF6E4EDF1CF8"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-page-size.js?rev=-1&amp;hash=98DC406ABF3B2B3510DC9245D4E2B94E"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-parameters.js?rev=-1&amp;hash=B3EBD5A781C1A974B86761D0CE87593E"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-query.js?rev=-1&amp;hash=3127E84A7BA87C2EE02648C0C98194DA"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-radius-filter.js?rev=-1&amp;hash=2B659066C26A04ABDE9F3D27555FBC3B"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-results.js?rev=-1&amp;hash=21BCE0B0DA3847CF0640DC36CA8BEBF1"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-results-count.js?rev=-1&amp;hash=12BD0BE2DAA2282A7A4E5FB2C877162E"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-results-filter.js?rev=-1&amp;hash=2C46288C7E1B900F461E0265FA6D8A70"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-sort.js?rev=-1&amp;hash=82006655387B835B60DA9BA890E48ABA"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-url.js?rev=-1&amp;hash=1F26865D5CF4D2D7516FFA4278A93F0D"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-variant-filter.js?rev=-1&amp;hash=5F71346DD7F5BD7D531DD32EB1397ACF"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-service.js?rev=-1&amp;hash=50406834D1C238153D76FBE423BD9265"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-router.js?rev=-1&amp;hash=05B061619E11F78FD47354D0F4C4B15A"></script><script src="/-/media/Base-Themes/SearchTheme/Scripts/component-search-facet-daterange.js?rev=-1&amp;hash=06FB82BFDDA38B48664A88DDFE704A3F"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/accessibility.js?rev=-1&amp;hash=FD069E96332B7188ADF82786D7AF3998"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-accordions.js?rev=-1&amp;hash=3C7EB747406024DFD7480D2B38B6C2C9"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-archive.js?rev=-1&amp;hash=9ACD102D99F61C5F9695848D39BB8D75"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-breadcrumb.js?rev=-1&amp;hash=43E041AAB77C02D7D48E893CF3F86DC5"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-carousel.js?rev=-1&amp;hash=CB4FAEC64A3FAD2260E1E04E295854A5"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-container.js?rev=-1&amp;hash=3340E8780FF98C0CDDF3010395B209F9"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-disqus.js?rev=-1&amp;hash=D8A65472E3F4251FC3B5C616192CC42A"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-facebook.js?rev=-1&amp;hash=37A5EB59B788D29EAF4AC23716E67D84"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-flash.js?rev=-1&amp;hash=5D454C8D8AF0215C71C9BECD35638AF8"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-flip.js?rev=-1&amp;hash=4A5A7304B1DC3A3F0C8D32D522AFA32B"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-fullcalendar.js?rev=-1&amp;hash=D9DA26714F168C96CB684F5DED495D54"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-galleria.js?rev=-1&amp;hash=9E3EB3C886B42BEE310D52C815938AC4"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-language-selector.js?rev=-1&amp;hash=A94D2F03EA36F9DA11840CC7BA8DD70E"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-navigation.js?rev=-1&amp;hash=396CA4BF944CB87789BBE0259622B44F"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-overlay.js?rev=-1&amp;hash=66F9F16E924CFB1F8795A50152A784DA"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-snippet.js?rev=-1&amp;hash=EDD72EDC96FAAEC9E13CC9D3697BD001"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-social.js?rev=-1&amp;hash=AB8DC1807B28259AACABA975CA881CB2"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-tabs.js?rev=-1&amp;hash=C98170700019CE26F56EC5D965A1CE06"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-toggle.js?rev=-1&amp;hash=3491E12D3C9B944A7A8BD55709368347"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-video.js?rev=-1&amp;hash=D96828F70697D2DF6D99D8BA37BF7254"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/component-video-playlist.js?rev=-1&amp;hash=C8C2A2D4521B5D3E4DF07158F80A4650"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/details-polyfill.js?rev=-1&amp;hash=0A527C86829313C9FC4CD4B8BFCF19A5"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/fixheight.js?rev=-1&amp;hash=B2405E217D5E38E828B1033BB4611ECC"></script><script src="/-/media/Base-Themes/Components-Theme/Scripts/search-fixheight.js?rev=-1&amp;hash=99AF42821A48355A69C801EEFE4F6C5D"></script><script src="/-/media/Base-Themes/Resolve-Conflicts/Scripts/resolveconflicts.js?rev=-1&amp;hash=17E1C19877EFF0F17ED43E53134BF0EF"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/jquery-36min.js?rev=16ec5974d4b84bb1a2512be910d95252&amp;hash=B001291AE1D01BF3393FB11094105111"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/bootstrap-45min.js?rev=ef7c3684299c4b7a9d07aa4e38708c55&amp;hash=069CB67CC2C8FC72C4BEC96D5E9E0ABC"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/backtotop.js?rev=40c9766fc3af43d9bf01b29f4c665ddc&amp;hash=6CED2F2E451F51F379FB152D95351F01"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/common.js?rev=0e88559e03d14d95a77834670d3b6640&amp;hash=1DA2BFCC4065F5A1FDF724EC1690BD8F"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/ctc-breadcrumb-structure-data-markup.js?rev=f1d18ee6ee4f4b20880a7426f15d9c2d&amp;hash=E8046BE7985B6489A2A8CC8925380239"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/encoding.js?rev=2ddca0369f694880ad3e7a440579d302&amp;hash=761565CE566B25B036A4AA07B648743E"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/flipsnapmin.js?rev=2bee2efbd7614ab78b2b972745c6926f&amp;hash=02E4012C8B3D3ABD1CD5F4CEE1DB226A"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/header_modal_dialog.js?rev=7d70661fdca34bcd96525fee566a87bc&amp;hash=AE19ABDFB4A7BF1163782523BB757ED0"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/jquerybxslider.js?rev=337ea368112e4395ac68ddfba0fdcdcb&amp;hash=2E231EA9AF8AF1F88EE0F2AECB3A67BC"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/jquerymatchHeight-min.js?rev=91fc3e4e10c848528f9c1b4517e8c892&amp;hash=429167955739294EE4FCE0EFC1ABBF99"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/poppermin.js?rev=e75f5c3b52e249efb24717743a67e245&amp;hash=9007973336784E1D7138B0EDD3469948"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/slickmin.js?rev=28d9ae506da740a691483169c54562eb&amp;hash=949115B76AB2D767CADAE46BE400096B"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/smoothscroll.js?rev=b8087512fa3541548cafa7cdcabd5c52&amp;hash=14EA3D2C9967D2320F44397352BBFDBC"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/toastrmin.js?rev=ea2fe0fd08f24187ade4c0058baa2bb5&amp;hash=186EBAB8D31D87B4A3E6DBB611E62AE1"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/top.js?rev=5d6b2403d3d943c9af88283a7ec9f976&amp;hash=11741D2F8C3A71C805F9E53A9D6B053A"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_scripts/jumpWithContactId.js?rev=a3078d8d2c9547aead1e8d18d2ad3414&amp;hash=617E86F7E35B5417E31F2AD4491B0D3B"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/common_parts/side_nav/js/side_nav.js?rev=7fb860b80809484093cc7acb14e0af10&amp;hash=994DCED3769022954A277DA9FFEBD3AF"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/common/common.js?rev=b44e61a6f26a4eb2a5fd1847a391ad92&amp;hash=D2572EE5FDC183F63BA97B768CCA6CC4"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/common/match-height.js?rev=8406df37f58e40e8a3befcbcff794ae6&amp;hash=6A0C1EE31C29E8C08796C08C07874014"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/common/scroll-hintmin.js?rev=c80920f287384afea77aab17f4e4bdb5&amp;hash=C7CBFF22A7EDB5E2F9B2D5739094B3A2"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/common/slickmin.js?rev=87eb9d8139804b349ff0248f38119581&amp;hash=948888EB938B6981285BF1174BDAD3F9"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/component-parts/searchbox.js?rev=b94a23577d574418adffb5129cbe9173&amp;hash=9E3F08F2D7F814E6B3EDDC090474C971"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/component-parts/tab.js?rev=4c2bb1a4ff3c438aa9ee9a85ddef1b92&amp;hash=6217D412352216C9867FCF23935C4946"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/component-parts/table-scroll.js?rev=26a90ccf815c4b57b239be5730738fea&amp;hash=401DEF7B83795118D12F696D4EF89531"></script><script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/reusable-richtext/campaign-carousel.js?rev=186cbe27fecd4144bbb489adf5db217c&amp;hash=9E4CEBEF550402A526293C979F97B3B1"></script>
+        <script src="/-/media/Themes/commufa/commufa/commufa/Scripts/2022/reusable-richtext/carousel-default.js?rev=93144a286d654cbbbc35b3b6ad768455&amp;hash=BBC4E2F1BA4CD4418C6CD7F9A896A762"></script>        
+        <script src="/-/media/Project/commufa/commufa/js/article/related_article.js?rev=7d124b55ace7409197a8049cd19af41f"></script>
+ 
+    </div>
+ 
+ 
+<script type="text/javascript" id="">(function(b,c,d,e){var a=b.createElement("script");a.type="module";a.src=e;a.dataset.pluid=c;a.dataset.workspace=d;a.async=!0;b.head.appendChild(a)})(document,"reEFRRPwYaa7bKbCKHi0hJ9LINX2","2ZekOKa8I1xJw1iHBK9E","https://modules.promolayer.io/index.js");</script>
+ 
+<script type="text/javascript" id="" src="https://js.ptengine.jp/7cqhqrz4.js"></script>
+<script type="text/javascript" id="" src="//dynamic.criteo.com/js/ld/ld.js?a=53412"></script>
+ 
+<script type="text/javascript" id="">(function(a,b,d){a._ltq=a._ltq||[];a._lt=a._lt||function(){a._ltq.push(arguments)};var e=location.protocol==="https:"?"https://d.line-scdn.net":"http://d.line-cdn.net",c=b.createElement("script");c.async=1;c.src=d||e+"/n/line_tag/public/release/v1/lt.js";b=b.getElementsByTagName("script")[0];b.parentNode.insertBefore(c,b)})(window,document);_lt("init",{customerType:"account",tagId:"78374d45-348e-457d-8f06-44eed9f00b60"});_lt("send","pv",["78374d45-348e-457d-8f06-44eed9f00b60"]);</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&amp;t_id=78374d45-348e-457d-8f06-44eed9f00b60&amp;e=pv&amp;noscript=1">
+</noscript>
+ 
+ 
+ 
+ 
+ 
+<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:53412},{event:"setSiteType",type:deviceType},{event:"viewItem",item:"ctccommufajp_1"});</script>
+<div id="criteo-tags-div" style="display: none;"></div>
+    <div id="batBeacon307322310409" style="width: 0px; height: 0px; display: none; visibility: hidden;">
+        <img id="batBeacon817851449531" width="0" height="0" alt="" src="https://bat.bing.com/action/0?ti=343043039&amp;tm=gtm002&amp;Ver=2&amp;mid=1b9a7036-2e47-4d97-a3d6-19c3b724f570&amp;sid=696aa05083b011ef86fdb7623db51c04&amp;vid=696ac35083b011ef858e4f3bb643c495&amp;vids=1&amp;msclkid=N&amp;pi=918639831&amp;lg=ja&amp;sw=810&amp;sh=1080&amp;sc=24&amp;tl=%E5%8B%95%E7%94%BB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E6%96%B9%E6%B3%95%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BC%81YouTube%E5%8B%95%E7%94%BB%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9%E3%82%82%E7%B4%B9%E4%BB%8B&amp;p=https%3A%2F%2Fwww.commufa.jp%2Farticle%2F0128&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;lt=2622&amp;mtp=5&amp;evt=pageLoad&amp;sv=1&amp;cdb=AQAQ&amp;rn=753546" style="width: 0px; height: 0px; display: none; visibility: hidden;"></div><div id="ptxEngage_popup_31a062f8-270f-4432-96b2-daacf1832100"></div><div id="ptxEngage_popup_1ea3347b"></div><div id="ptxEngage_popup_8a1f9a71"></div><iframe height="0" width="0" sandbox="allow-same-origin allow-scripts" aria-hidden="true" title="Criteo DIS iframe" style="display: none;"></iframe><!--Popups by Promolayer. Make yours at https://promolayer.io--><div id="reEFRRPwYaa7bKbCKHi0hJ9LINX22ZekOKa8I1xJw1iHBK9E" class="pl-root-element promolayer-app" style="position: relative; z-index: 2147483647; height: 0px;"></div></body></html>
